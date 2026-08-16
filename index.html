@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>马楚轩 | 个人简历 - AI复合型人才</title>
+
+    <!-- ==================== 样式库 CDN 引入 ==================== -->
+    <script src="https://cdn.tailwindcss.com">
+    </script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- ==================== Tailwind 配置 ==================== -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        mono: ['"Fira Code"', '"JetBrains Mono"', 'Consolas', 'Monaco', 'monospace'],
+                        sans: ['"Inter"', '"PingFang SC"', '"Microsoft YaHei"', 'sans-serif'],
+                    },
+                    animation: {
+                        'blink': 'blink 1s step-end infinite',
+                        'gradient': 'gradientShift 8s ease infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 3s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        blink: {
+                            '0%, 100%': { opacity: '1' },
+                            '50%': { opacity: '0' },
+                        },
+                        gradientShift: {
+                            '0%, 100%': { backgroundPosition: '0% 50%' },
+                            '50%': { backgroundPosition: '100% 50%' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-15px)' },
+                        },
+                    },
+                },
+            },
+        };
+    </script>
+
+    <!-- ==================== 自定义样式 ==================== -->
+    <style>
+        :root {
+            --bg-primary: #080818;
+            --bg-secondary: #0d0d28;
+            --bg-card: rgba(20, 20, 50, 0.55);
+            --bg-card-hover: rgba(30, 30, 70, 0.75);
+            --text-primary: #e8e8f0;
+            --text-secondary: #a0a0c0;
+            --text-muted: #60608a;
+            --accent-cyan: #00e5ff;
+            --accent-purple: #a855f7;
+            --accent-pink: #ec4899;
+            --border-color: rgba(255, 255, 255, 0.08);
+            --glass-blur: 12px;
+            --shadow-glow: 0 0 30px rgba(168, 85, 247, 0.15);
+            --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.35);
+            --shadow-card-hover: 0 16px 48px rgba(0, 0, 0, 0.5);
+            --gradient-bg: linear-gradient(135deg, #080818 0%, #12082a 25%, #0a1a3a 50%, #080818 75%, #10082a 100%);
+            --gradient-hero: linear-gradient(135deg, #0a0a2e 0%, #1a0a3e 40%, #0d1b4e 70%, #0a0a2e 100%);
+            --gradient-text: linear-gradient(135deg, #00e5ff 0%, #a855f7 50%, #ec4899 100%);
+            --scrollbar-track: #0a0a1a;
+            --scrollbar-thumb: #2a2a5a;
+        }
+        html:not(.dark) {
+            --bg-primary: #f5f5fa;
+            --bg-secondary: #eaeaf2;
+            --bg-card: rgba(255, 255, 255, 0.7);
+            --bg-card-hover: rgba(255, 255, 255, 0.9);
+            --text-primary: #1a1a2e;
+            --text-secondary: #3a3a5a;
+            --text-muted: #8888aa;
+            --accent-cyan: #0088cc;
+            --accent-purple: #7c3aed;
+            --accent-pink: #db2777;
+            --border-color: rgba(0, 0, 0, 0.08);
+            --glass-blur: 14px;
+            --shadow-glow: 0 0 30px rgba(124, 58, 237, 0.1);
+            --shadow-card: 0 8px 24px rgba(0, 0, 0, 0.08);
+            --shadow-card-hover: 0 16px 40px rgba(0, 0, 0, 0.14);
+            --gradient-bg: linear-gradient(135deg, #f5f5fa 0%, #e8e8f5 25%, #e0e8f8 50%, #f5f5fa 75%, #eee8fa 100%);
+            --gradient-hero: linear-gradient(135deg, #e8e8f5 0%, #ddd0f5 40%, #d0ddf5 70%, #e8e8f5 100%);
+            --gradient-text: linear-gradient(135deg, #0088cc 0%, #7c3aed 50%, #db2777 100%);
+            --scrollbar-track: #e8e8f0;
+            --scrollbar-thumb: #b0b0cc;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scrollbar-width: thin;
+            scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+        }
+
+        body {
+            font-family: 'Inter', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            background: var(--gradient-bg);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            color: var(--text-primary);
+            min-height: 100vh;
+            overflow-x: hidden;
+            transition: background 0.5s ease, color 0.5s ease;
+            line-height: 1.6;
+        }
+
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--scrollbar-track);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--scrollbar-thumb);
+            border-radius: 3px;
+        }
+
+        .glass-card {
+            background: var(--bg-card);
+            backdrop-filter: blur(var(--glass-blur));
+            -webkit-backdrop-filter: blur(var(--glass-blur));
+            border: 1px solid var(--border-color);
+            border-radius: 1rem;
+            box-shadow: var(--shadow-card);
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .glass-card:hover {
+            background: var(--bg-card-hover);
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-card-hover), var(--shadow-glow);
+            border-color: rgba(168, 85, 247, 0.3);
+        }
+
+        .gradient-text {
+            background: var(--gradient-text);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .tech-border {
+            position: relative;
+        }
+        .tech-border::before {
+            content: '';
+            position: absolute;
+            top: -1px;
+            left: -1px;
+            width: 30px;
+            height: 30px;
+            border-top: 2px solid var(--accent-cyan);
+            border-left: 2px solid var(--accent-cyan);
+            border-radius: 0.5rem 0 0 0;
+            opacity: 0.7;
+            pointer-events: none;
+            transition: all 0.3s ease;
+        }
+        .tech-border::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            right: -1px;
+            width: 30px;
+            height: 30px;
+            border-bottom: 2px solid var(--accent-purple);
+            border-right: 2px solid var(--accent-purple);
+            border-radius: 0 0 0.5rem 0;
+            opacity: 0.7;
+            pointer-events: none;
+            transition: all 0.3s ease;
+        }
+        .tech-border:hover::before {
+            width: 60px;
+            height: 60px;
+            opacity: 1;
+        }
+        .tech-border:hover::after {
+            width: 60px;
+            height: 60px;
+            opacity: 1;
+        }
+
+        .typing-cursor {
+            display: inline-block;
+            width: 2px;
+            height: 1.2em;
+            background: var(--accent-cyan);
+            animation: blink 1s step-end infinite;
+            vertical-align: text-bottom;
+            margin-left: 2px;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        #particleCanvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .main-content {
+            position: relative;
+            z-index: 10;
+        }
+
+        .navbar {
+            transition: all 0.4s ease;
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid transparent;
+        }
+        .navbar.scrolled {
+            border-bottom-color: var(--border-color);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            background: var(--bg-card);
+        }
+
+        #danmakuContainer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            z-index: 100;
+            pointer-events: none;
+            overflow: hidden;
+        }
+        .danmaku-item {
+            position: absolute;
+            white-space: nowrap;
+            pointer-events: none;
+            animation: danmakuMove linear forwards;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-shadow: 0 0 10px rgba(0, 0, 0, 0.5), 0 0 20px rgba(168, 85, 247, 0.4);
+            letter-spacing: 0.05em;
+            will-change: transform;
+        }
+        @keyframes danmakuMove {
+            0% { transform: translateX(100vw); opacity: 0; }
+            5% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateX(-120%); opacity: 0; }
+        }
+
+        .hero-grid {
+            background-image:
+                linear-gradient(rgba(168, 85, 247, 0.08) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(168, 85, 247, 0.08) 1px, transparent 1px);
+            background-size: 50px 50px;
+            mask-image: radial-gradient(ellipse at center, rgba(0,0,0,0.8) 0%, transparent 70%);
+            -webkit-mask-image: radial-gradient(ellipse at center, rgba(0,0,0,0.8) 0%, transparent 70%);
+        }
+
+        .skill-tag {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.35rem 0.9rem;
+            border-radius: 9999px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            transition: all 0.25s ease;
+            cursor: default;
+            user-select: none;
+        }
+        .skill-tag:hover {
+            border-color: var(--accent-purple);
+            color: var(--text-primary);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 16px rgba(168, 85, 247, 0.25);
+        }
+
+        .cert-card {
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .cert-card:hover {
+            transform: translateY(-6px) scale(1.02);
+            box-shadow: var(--shadow-card-hover), 0 0 30px rgba(0, 229, 255, 0.1);
+            border-color: rgba(0, 229, 255, 0.35);
+        }
+
+        .danmaku-input {
+            background: var(--bg-card);
+            backdrop-filter: blur(var(--glass-blur));
+            -webkit-backdrop-filter: blur(var(--glass-blur));
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            transition: all 0.3s ease;
+            outline: none;
+        }
+        .danmaku-input:focus {
+            border-color: var(--accent-purple);
+            box-shadow: 0 0 20px rgba(168, 85, 247, 0.25);
+        }
+        .danmaku-input::placeholder {
+            color: var(--text-muted);
+        }
+
+        .btn-primary {
+            background: var(--gradient-text);
+            color: #fff;
+            border: none;
+            padding: 0.6rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 16px rgba(168, 85, 247, 0.3);
+        }
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(168, 85, 247, 0.5);
+        }
+        .btn-primary:active {
+            transform: translateY(-1px);
+        }
+
+        /* 证书图片展示卡片 */
+        .cert-image-card {
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            overflow: hidden;
+            border-radius: 0.75rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 0.5rem;
+            position: relative;
+        }
+        .cert-image-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-card-hover), 0 0 20px rgba(0, 229, 255, 0.2);
+            border-color: rgba(0, 229, 255, 0.4);
+        }
+        .cert-image-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 0.5rem;
+            transition: transform 0.4s ease;
+        }
+        .cert-image-card:hover img {
+            transform: scale(1.03);
+        }
+        .cert-image-card .cert-label {
+            position: absolute;
+            bottom: 0.75rem;
+            left: 0.75rem;
+            right: 0.75rem;
+            background: rgba(0,0,0,0.6);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            color: #fff;
+            font-size: 0.7rem;
+            padding: 0.25rem 0.6rem;
+            border-radius: 0.35rem;
+            text-align: center;
+            letter-spacing: 0.03em;
+        }
+        html:not(.dark) .cert-image-card .cert-label {
+            background: rgba(255,255,255,0.8);
+            color: #1a1a2e;
+        }
+
+        /* 灯箱遮罩 */
+        .lightbox-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 200;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: zoom-out;
+            animation: fadeIn 0.25s ease;
+        }
+        .lightbox-overlay img {
+            max-width: 92vw;
+            max-height: 90vh;
+            object-fit: contain;
+            border-radius: 0.75rem;
+            box-shadow: 0 0 60px rgba(0, 229, 255, 0.3);
+            animation: zoomIn 0.3s ease;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes zoomIn {
+            from { transform: scale(0.9); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        @media (max-width: 768px) {
+            .glass-card {
+                border-radius: 0.75rem;
+            }
+            .danmaku-item {
+                font-size: 0.9rem;
+            }
+            .cert-image-card img {
+                height: 140px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <canvas id="particleCanvas" aria-hidden="true"></canvas>
+    <div id="danmakuContainer" aria-hidden="true"></div>
+
+    <div class="main-content">
+        <nav id="navbar" class="navbar fixed top-0 left-0 right-0 z-50 px-4 sm:px-8 py-3">
+            <div class="max-w-6xl mx-auto flex items-center justify-between">
+                <a href="#hero" class="flex items-center gap-2 group">
+                    <span class="text-lg font-bold font-mono gradient-text group-hover:scale-105 transition-transform duration-300">
+                        <i class="fa-solid fa-code mr-1"></i>MCX.dev
+                    </span>
+                </a>
+                <div class="hidden md:flex items-center gap-6 text-sm font-medium">
+                    <a href="#about" class="hover:text-[var(--accent-cyan)] transition-colors duration-300">关于我</a>
+                    <a href="#skills" class="hover:text-[var(--accent-cyan)] transition-colors duration-300">专业技能</a>
+                    <a href="#certs" class="hover:text-[var(--accent-cyan)] transition-colors duration-300">获奖证书</a>
+                    <a href="#guestbook" class="hover:text-[var(--accent-cyan)] transition-colors duration-300">留言互动</a>
+                </div>
+                <button id="themeToggle" class="flex items-center gap-2 px-3 py-2 rounded-full border transition-all duration-300 hover:scale-110 active:scale-95 cursor-pointer"
+                style="border-color: var(--border-color); background: var(--bg-card);" aria-label="切换深色/浅色模式">
+                <i id="themeIconLight" class="fa-solid fa-sun text-[var(--accent-cyan)] text-sm hidden"></i>
+                <i id="themeIconDark" class="fa-solid fa-moon text-[var(--accent-purple)] text-sm"></i>
+                <span id="themeLabel" class="text-xs font-medium">深色</span>
+            </button>
+        </div>
+    </nav>
+
+    <section id="hero" class="relative min-h-screen flex items-center justify-center px-4 sm:px-8 pt-20 pb-16">
+        <div class="hero-grid absolute inset-0 pointer-events-none"></div>
+        <div class="absolute top-1/4 left-1/4 w-72 h-72 rounded-full blur-3xl opacity-20 pointer-events-none" style="background: radial-gradient(circle, #a855f7, transparent 70%);"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full blur-3xl opacity-15 pointer-events-none" style="background: radial-gradient(circle, #00e5ff, transparent 70%);"></div>
+
+        <div class="relative z-10 text-center max-w-3xl mx-auto">
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-8 glass-card text-xs font-mono" data-aos="fade-down" data-aos-duration="800">
+                <span class="w-2 h-2 rounded-full bg-green-500"></span>
+                <span class="w-2 h-2 rounded-full bg-yellow-500"></span>
+                <span class="w-2 h-2 rounded-full bg-red-500"></span>
+                <span class="ml-2 text-[var(--text-muted)]">~/mcx/resume &nbsp;▸&nbsp;</span>
+                <span class="text-[var(--accent-cyan)]">初始化中...</span>
+            </div>
+            <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 font-mono" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
+                <span class="gradient-text">马楚轩</span>
+            </h1>
+            <p class="text-lg sm:text-xl text-[var(--text-secondary)] mb-2" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+                黄淮学院 · 计算机科学与技术专业 · 2026级新生
+            </p>
+            <div class="text-sm sm:text-base font-mono text-[var(--accent-cyan)] mb-8 min-h-[2rem]" data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
+                <span class="text-[var(--text-muted)]">$&nbsp;</span>
+                <span id="typingText"></span>
+                <span class="typing-cursor"></span>
+            </div>
+            <p class="text-sm sm:text-base text-[var(--text-secondary)] max-w-2xl mx-auto mb-10 leading-relaxed" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
+                作为计算机科学与技术专业新生，已系统性完成多项人工智能与云计算领域的权威认证。
+                擅长将理论知识转化为实践成果，在智能体开发、RAG应用、AIGC设计等领域具备可验证的技能储备。
+            </p>
+            <div class="flex flex-wrap items-center justify-center gap-4" data-aos="fade-up" data-aos-duration="800" data-aos-delay="500">
+                <a href="#skills" class="btn-primary"><i class="fa-solid fa-terminal mr-2"></i>查看技能</a>
+                <a href="#certs" class="px-6 py-2.5 rounded-lg border transition-all duration-300 hover:translate-y-[-3px] cursor-pointer" style="border-color: var(--border-color); background: var(--bg-card); backdrop-filter: blur(var(--glass-blur));">
+                    <i class="fa-solid fa-certificate mr-2 text-[var(--accent-purple)]"></i><span>查看证书</span>
+                </a>
+                <a href="mailto:2364512038@qq.com" class="px-6 py-2.5 rounded-lg border transition-all duration-300 hover:translate-y-[-3px] cursor-pointer" style="border-color: var(--border-color); background: var(--bg-card); backdrop-filter: blur(var(--glass-blur));">
+                    <i class="fa-solid fa-envelope mr-2 text-[var(--accent-pink)]"></i><span>联系我</span>
+                </a>
+            </div>
+            <div class="flex flex-wrap items-center justify-center gap-6 mt-10 text-sm text-[var(--text-muted)]" data-aos="fade-up" data-aos-duration="800" data-aos-delay="600">
+                <a href="tel:18994796898" class="hover:text-[var(--accent-cyan)] transition-colors duration-300 flex items-center gap-2"><i class="fa-solid fa-phone"></i> 18994796898</a>
+                <a href="mailto:2364512038@qq.com" class="hover:text-[var(--accent-cyan)] transition-colors duration-300 flex items-center gap-2"><i class="fa-solid fa-at"></i> 2364512038@qq.com</a>
+            </div>
+        </div>
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce text-[var(--text-muted)]" data-aos="fade-up" data-aos-duration="800" data-aos-delay="800">
+            <i class="fa-solid fa-chevron-down text-xl"></i>
+        </div>
+    </section>
+
+    <section id="about" class="py-20 px-4 sm:px-8">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl sm:text-4xl font-bold mb-12 text-center font-mono" data-aos="fade-up" data-aos-duration="700">
+                <i class="fa-solid fa-user-astronaut mr-3 text-[var(--accent-purple)]"></i><span class="gradient-text">关于我</span>
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="glass-card tech-border p-8 md:p-10" data-aos="fade-right" data-aos-duration="800">
+                    <div class="flex items-center gap-3 mb-6">
+                        <i class="fa-solid fa-quote-left text-2xl text-[var(--accent-cyan)]"></i>
+                        <h3 class="text-xl font-bold">自我评价</h3>
+                    </div>
+                    <p class="text-[var(--text-secondary)] leading-relaxed">
+                        作为计算机科学与技术专业新生，已系统性完成多项人工智能与云计算领域的权威认证。
+                        擅长将理论知识转化为实践成果，在智能体开发、RAG应用、AIGC设计等领域具备可验证的技能储备。
+                        致力于成为兼具技术深度与业务理解力的复合型AI人才。
+                    </p>
+                    <div class="mt-6 flex flex-wrap gap-3">
+                        <span class="skill-tag"><i class="fa-solid fa-brain mr-1 text-[var(--accent-purple)]"></i> AI-native</span>
+                        <span class="skill-tag"><i class="fa-solid fa-cloud mr-1 text-[var(--accent-cyan)]"></i> Cloud Ready</span>
+                        <span class="skill-tag"><i class="fa-solid fa-rocket mr-1 text-[var(--accent-pink)]"></i> Fast Learner</span>
+                        <span class="skill-tag"><i class="fa-solid fa-lightbulb mr-1 text-yellow-500"></i> 实践导向</span>
+                    </div>
+                </div>
+                <div class="glass-card tech-border p-8 md:p-10" data-aos="fade-left" data-aos-duration="800" data-aos-delay="150">
+                    <div class="flex items-center gap-3 mb-6">
+                        <i class="fa-solid fa-id-card text-2xl text-[var(--accent-purple)]"></i>
+                        <h3 class="text-xl font-bold">基本信息</h3>
+                    </div>
+                    <ul class="space-y-4 text-sm">
+                        <li class="flex items-center gap-4"><i class="fa-solid fa-user w-6 text-center text-[var(--accent-cyan)]"></i><span class="text-[var(--text-muted)]">姓名：</span><span class="font-medium">马楚轩</span></li>
+                        <li class="flex items-center gap-4"><i class="fa-solid fa-graduation-cap w-6 text-center text-[var(--accent-cyan)]"></i><span class="text-[var(--text-muted)]">院校：</span><span class="font-medium">黄淮学院</span></li>
+                        <li class="flex items-center gap-4"><i class="fa-solid fa-microchip w-6 text-center text-[var(--accent-cyan)]"></i><span class="text-[var(--text-muted)]">专业：</span><span class="font-medium">计算机科学与技术</span></li>
+                        <li class="flex items-center gap-4"><i class="fa-solid fa-calendar w-6 text-center text-[var(--accent-cyan)]"></i><span class="text-[var(--text-muted)]">年级：</span><span class="font-medium">2026级新生</span></li>
+                        <li class="flex items-center gap-4"><i class="fa-solid fa-phone w-6 text-center text-[var(--accent-cyan)]"></i><span class="text-[var(--text-muted)]">电话：</span><a href="tel:18994796898" class="font-medium hover:text-[var(--accent-cyan)] transition-colors">18994796898</a></li>
+                        <li class="flex items-center gap-4"><i class="fa-solid fa-envelope w-6 text-center text-[var(--accent-cyan)]"></i><span class="text-[var(--text-muted)]">邮箱：</span><a href="mailto:2364512038@qq.com" class="font-medium hover:text-[var(--accent-cyan)] transition-colors">2364512038@qq.com</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="py-20 px-4 sm:px-8">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl sm:text-4xl font-bold mb-12 text-center font-mono" data-aos="fade-up" data-aos-duration="700">
+                <i class="fa-solid fa-cogs mr-3 text-[var(--accent-cyan)]"></i><span class="gradient-text">专业技能</span>
+            </h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="glass-card tech-border p-6" data-aos="flip-up" data-aos-duration="800">
+                    <div class="flex items-center gap-3 mb-4"><div class="w-12 h-12 rounded-lg flex items-center justify-center text-xl" style="background: rgba(0, 229, 255, 0.1); color: var(--accent-cyan);"><i class="fa-solid fa-robot"></i></div><h3 class="font-bold">AI与大模型</h3></div>
+                    <div class="flex flex-wrap gap-2"><span class="skill-tag">Prompt工程</span><span class="skill-tag">RAG应用构建</span><span class="skill-tag">智能体开发</span><span class="skill-tag">阿里云百炼</span><span class="skill-tag">讯飞星火</span></div>
+                </div>
+                <div class="glass-card tech-border p-6" data-aos="flip-up" data-aos-duration="800" data-aos-delay="100">
+                    <div class="flex items-center gap-3 mb-4"><div class="w-12 h-12 rounded-lg flex items-center justify-center text-xl" style="background: rgba(168, 85, 247, 0.1); color: var(--accent-purple);"><i class="fa-solid fa-palette"></i></div><h3 class="font-bold">AIGC内容生产</h3></div>
+                    <div class="flex flex-wrap gap-2"><span class="skill-tag">PAI ArtLab工具</span><span class="skill-tag">AI辅助设计</span><span class="skill-tag">AIGC工作流</span><span class="skill-tag">创意生成</span></div>
+                </div>
+                <div class="glass-card tech-border p-6" data-aos="flip-up" data-aos-duration="800" data-aos-delay="200">
+                    <div class="flex items-center gap-3 mb-4"><div class="w-12 h-12 rounded-lg flex items-center justify-center text-xl" style="background: rgba(236, 72, 153, 0.1); color: var(--accent-pink);"><i class="fa-solid fa-sliders"></i></div><h3 class="font-bold">模型微调</h3></div>
+                    <div class="flex flex-wrap gap-2"><span class="skill-tag">数据标注</span><span class="skill-tag">训练参数配置</span><span class="skill-tag">AI训练师(高级)</span><span class="skill-tag">达摩院认证</span></div>
+                </div>
+                <div class="glass-card tech-border p-6" data-aos="flip-up" data-aos-duration="800" data-aos-delay="300">
+                    <div class="flex items-center gap-3 mb-4"><div class="w-12 h-12 rounded-lg flex items-center justify-center text-xl" style="background: rgba(255, 215, 0, 0.1); color: #ffd700;"><i class="fa-solid fa-cloud"></i></div><h3 class="font-bold">云计算</h3></div>
+                    <div class="flex flex-wrap gap-2"><span class="skill-tag">阿里云ECS</span><span class="skill-tag">OSS对象存储</span><span class="skill-tag">RDS数据库</span><span class="skill-tag">云运维</span></div>
+                </div>
+            </div>
+            <div class="mt-12 glass-card p-8" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+                <h3 class="text-lg font-bold mb-6 flex items-center gap-3"><i class="fa-solid fa-tags text-[var(--accent-purple)]"></i>技术标签云</h3>
+                <div class="flex flex-wrap gap-3 justify-center">
+                    <span class="skill-tag"><i class="fa-solid fa-wand-magic-sparkles mr-1"></i>Prompt Engineering</span>
+                    <span class="skill-tag"><i class="fa-solid fa-database mr-1"></i>RAG Architecture</span>
+                    <span class="skill-tag"><i class="fa-solid fa-robot mr-1"></i>Agent Development</span>
+                    <span class="skill-tag"><i class="fa-solid fa-paint-brush mr-1"></i>AI Design</span>
+                    <span class="skill-tag"><i class="fa-solid fa-train mr-1"></i>Fine-tuning</span>
+                    <span class="skill-tag"><i class="fa-solid fa-server mr-1"></i>Cloud Ops</span>
+                    <span class="skill-tag"><i class="fa-solid fa-chart-line mr-1"></i>Data Annotation</span>
+                    <span class="skill-tag"><i class="fa-solid fa-code mr-1"></i>Python</span>
+                    <span class="skill-tag"><i class="fa-solid fa-terminal mr-1"></i>Linux</span>
+                    <span class="skill-tag"><i class="fa-solid fa-git mr-1"></i>Git</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="certs" class="py-20 px-4 sm:px-8">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl sm:text-4xl font-bold mb-12 text-center font-mono" data-aos="fade-up" data-aos-duration="700">
+                <i class="fa-solid fa-award mr-3 text-[var(--accent-pink)]"></i><span class="gradient-text">获奖与证书</span>
+            </h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="glass-card cert-card tech-border p-7" data-aos="fade-up" data-aos-duration="800">
+                    <div class="flex items-center gap-4 mb-5">
+                        <div class="w-14 h-14 rounded-xl flex items-center justify-center text-2xl shrink-0" style="background: rgba(255, 215, 0, 0.12); color: #ffd700;"><i class="fa-solid fa-building-columns"></i></div>
+                        <div><p class="text-xs font-mono text-[var(--text-muted)]">阿里巴巴达摩院</p><p class="font-bold">人工智能训练师</p><p class="text-xs text-[var(--accent-cyan)]">高级 / 初级</p></div>
+                    </div>
+                    <p class="text-sm text-[var(--text-secondary)] leading-relaxed">通过达摩院人工智能训练师认证（高级/初级），系统掌握数据标注、模型训练参数配置、训练流程管理等核心技能。</p>
+                    <div class="mt-4 flex items-center gap-2 text-xs text-[var(--text-muted)]"><i class="fa-solid fa-calendar-check text-[var(--accent-cyan)]"></i><span>认证时间：2026年7月</span></div>
+                </div>
+                <div class="glass-card cert-card tech-border p-7" data-aos="fade-up" data-aos-duration="800" data-aos-delay="150">
+                    <div class="flex items-center gap-4 mb-5">
+                        <div class="w-14 h-14 rounded-xl flex items-center justify-center text-2xl shrink-0" style="background: rgba(0, 229, 255, 0.12); color: var(--accent-cyan);"><i class="fa-solid fa-cloud"></i></div>
+                        <div><p class="text-xs font-mono text-[var(--text-muted)]">阿里云 Clouder</p><p class="font-bold">多项技能认证</p><p class="text-xs text-[var(--accent-cyan)]">有效期至2028年7月</p></div>
+                    </div>
+                    <ul class="text-sm text-[var(--text-secondary)] leading-relaxed space-y-2 list-disc list-inside">
+                        <li>基于百炼平台构建智能体应用</li><li>RAG应用构建及优化</li><li>利用大模型提升内容生产能力</li><li>基于PAI ArtLab的AIGC设计基础</li>
+                    </ul>
+                    <div class="mt-4 flex items-center gap-2 text-xs text-[var(--text-muted)]"><i class="fa-solid fa-shield-halved text-[var(--accent-cyan)]"></i><span>认证机构：阿里云</span></div>
+                </div>
+                <div class="glass-card cert-card tech-border p-7" data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
+                    <div class="flex items-center gap-4 mb-5">
+                        <div class="w-14 h-14 rounded-xl flex items-center justify-center text-2xl shrink-0" style="background: rgba(168, 85, 247, 0.12); color: var(--accent-purple);"><i class="fa-solid fa-microphone"></i></div>
+                        <div><p class="text-xs font-mono text-[var(--text-muted)]">科大讯飞</p><p class="font-bold">AI工程师系列认证</p><p class="text-xs text-[var(--accent-cyan)]">有效期至2028年8月</p></div>
+                    </div>
+                    <div class="flex flex-wrap gap-2"><span class="skill-tag">智能体工程师</span><span class="skill-tag">微调工程师</span><span class="skill-tag">RAG工程师</span><span class="skill-tag">Prompt工程师</span></div>
+                    <div class="mt-4 flex items-center gap-2 text-xs text-[var(--text-muted)]"><i class="fa-solid fa-graduation-cap text-[var(--accent-purple)]"></i><span>全部认证有效</span></div>
+                </div>
+            </div>
+
+            <!-- 时间轴 -->
+            <div class="mt-12 glass-card p-8" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+                <h3 class="text-lg font-bold mb-6 flex items-center gap-3"><i class="fa-solid fa-timeline text-[var(--accent-cyan)]"></i>认证时间轴</h3>
+                <div class="relative">
+                    <div class="absolute left-4 top-0 bottom-0 w-px bg-gradient-to-b from-[var(--accent-cyan)] via-[var(--accent-purple)] to-[var(--accent-pink)]"></div>
+                    <div class="space-y-8 pl-12">
+                        <div class="relative"><div class="absolute -left-[3.25rem] top-1 w-3 h-3 rounded-full bg-[var(--accent-cyan)] shadow-[0_0_12px_rgba(0,229,255,0.6)]"></div><p class="text-sm font-bold text-[var(--accent-cyan)]">2026年7月</p><p class="text-sm text-[var(--text-secondary)]">阿里巴巴达摩院 — 人工智能训练师（高级/初级）</p></div>
+                        <div class="relative"><div class="absolute -left-[3.25rem] top-1 w-3 h-3 rounded-full bg-[var(--accent-purple)] shadow-[0_0_12px_rgba(168,85,247,0.6)]"></div><p class="text-sm font-bold text-[var(--accent-purple)]">2026年8月</p><p class="text-sm text-[var(--text-secondary)]">阿里云 Clouder — 百炼智能体/RAG/AIGC设计 系列认证</p></div>
+                        <div class="relative"><div class="absolute -left-[3.25rem] top-1 w-3 h-3 rounded-full bg-[var(--accent-pink)] shadow-[0_0_12px_rgba(236,72,153,0.6)]"></div><p class="text-sm font-bold text-[var(--accent-pink)]">2026年8月</p><p class="text-sm text-[var(--text-secondary)]">科大讯飞 — 智能体/微调/RAG/Prompt 工程师认证</p></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 证书扫描件展示区域（新增） -->
+            <div class="mt-12" data-aos="fade-up" data-aos-duration="800">
+                <h3 class="text-lg font-bold mb-6 flex items-center gap-3">
+                    <i class="fa-solid fa-images text-[var(--accent-cyan)]"></i>
+                    证书扫描件展示
+                </h3>
+                <div id="certGalleryContainer" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+                    <!-- 由JavaScript动态生成图片卡片 -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="guestbook" class="py-20 px-4 sm:px-8">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl sm:text-4xl font-bold mb-6 text-center font-mono" data-aos="fade-up" data-aos-duration="700">
+                <i class="fa-solid fa-comments mr-3 text-[var(--accent-cyan)]"></i><span class="gradient-text">留言互动</span>
+            </h2>
+            <p class="text-center text-[var(--text-muted)] mb-10 text-sm" data-aos="fade-up" data-aos-duration="700" data-aos-delay="100">
+                <i class="fa-solid fa-bullhorn mr-1"></i> 输入文字后，留言将以弹幕形式飘过屏幕！
+            </p>
+            <div class="glass-card p-8 max-w-2xl mx-auto" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <input type="text" id="danmakuInput" class="danmaku-input flex-1 px-5 py-3 rounded-lg text-sm placeholder:text-sm" placeholder="输入留言，点击发送或按回车..." maxlength="60" autocomplete="off" aria-label="输入留言内容">
+                    <button id="danmakuSendBtn" class="btn-primary whitespace-nowrap text-sm"><i class="fa-solid fa-paper-plane mr-2"></i>发送弹幕</button>
+                </div>
+                <div class="mt-3 text-xs text-[var(--text-muted)] flex items-center gap-2"><i class="fa-solid fa-info-circle"></i><span>留言将以弹幕形式飘过屏幕，可连续发送多条</span></div>
+            </div>
+            <div class="mt-6 flex flex-wrap justify-center gap-3" data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
+                <button class="skill-tag cursor-pointer hover:border-[var(--accent-pink)]" onclick="sendDanmaku('太强了！🚀')">🚀 太强了！</button>
+                <button class="skill-tag cursor-pointer hover:border-[var(--accent-pink)]" onclick="sendDanmaku('求带飞！🙏')">🙏 求带飞！</button>
+                <button class="skill-tag cursor-pointer hover:border-[var(--accent-pink)]" onclick="sendDanmaku('AI大佬！💪')">💪 AI大佬！</button>
+                <button class="skill-tag cursor-pointer hover:border-[var(--accent-pink)]" onclick="sendDanmaku('黄淮之光！✨')">✨ 黄淮之光！</button>
+                <button class="skill-tag cursor-pointer hover:border-[var(--accent-pink)]" onclick="sendDanmaku('简历很酷！🔥')">🔥 简历很酷！</button>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-10 px-4 sm:px-8 border-t" style="border-color: var(--border-color);">
+        <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-[var(--text-muted)]">
+            <p class="font-mono"><i class="fa-solid fa-code mr-2"></i>&copy; 2026 马楚轩 · 黄淮学院</p>
+            <p class="flex items-center gap-4">
+                <a href="tel:18994796898" class="hover:text-[var(--accent-cyan)] transition-colors"><i class="fa-solid fa-phone mr-1"></i> 18994796898</a>
+                <a href="mailto:2364512038@qq.com" class="hover:text-[var(--accent-cyan)] transition-colors"><i class="fa-solid fa-envelope mr-1"></i> 邮箱</a>
+            </p>
+            <p class="font-mono text-xs">Powered by <span class="text-[var(--accent-cyan)]">HTML5 + Tailwind + Canvas</span></p>
+        </div>
+    </footer>
+</div>
+
+<!-- AOS.js -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js">
+</script>
+
+<script>
+    /* ==================== AOS初始化 ==================== */
+    document.addEventListener('DOMContentLoaded', function() {
+        AOS.init({
+            duration: 700,
+            easing: 'ease-out-cubic',
+            once: false,
+            offset: 80,
+        });
+        // 动态生成证书图片画廊
+        initCertGallery();
+    });
+
+    /* ==================== 深色/浅色模式切换 ==================== */
+    (function() {
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIconLight = document.getElementById('themeIconLight');
+        const themeIconDark = document.getElementById('themeIconDark');
+        const themeLabel = document.getElementById('themeLabel');
+        const htmlElement = document.documentElement;
+
+        function getCurrentTheme() {
+            const saved = localStorage.getItem('mcx-theme');
+            if (saved === 'light' || saved === 'dark') return saved;
+            return 'dark';
+        }
+
+        function applyTheme(theme) {
+            if (theme === 'dark') {
+                htmlElement.classList.add('dark');
+                htmlElement.classList.remove('light');
+                themeIconLight.classList.add('hidden');
+                themeIconDark.classList.remove('hidden');
+                themeLabel.textContent = '深色';
+            } else {
+                htmlElement.classList.remove('dark');
+                htmlElement.classList.add('light');
+                themeIconLight.classList.remove('hidden');
+                themeIconDark.classList.add('hidden');
+                themeLabel.textContent = '浅色';
+            }
+            localStorage.setItem('mcx-theme', theme);
+        }
+
+        applyTheme(getCurrentTheme());
+        themeToggle.addEventListener('click', function() {
+            const currentTheme = getCurrentTheme();
+            applyTheme(currentTheme === 'dark' ? 'light' : 'dark');
+        });
+    })();
+
+    /* ==================== 打字机效果 ==================== */
+    (function() {
+        const typingText = document.getElementById('typingText');
+        const phrases = [
+            '你好，我是马楚轩 👋',
+            'AI & 大模型爱好者 🤖',
+            'RAG / Agent 开发者 ⚡',
+            'AIGC 创作者 🎨',
+            '欢迎来到我的简历 ✨',
+            '<AI /> · RAG · Agent · Prompt',
+        ];
+        let phraseIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        const typeSpeed = 60;
+        const deleteSpeed = 30;
+        const pauseDuration = 2000;
+
+        function typeLoop() {
+            const currentPhrase = phrases[phraseIndex];
+            if (!isDeleting) {
+                typingText.textContent = currentPhrase.substring(0, charIndex + 1);
+                charIndex++;
+                if (charIndex >= currentPhrase.length) {
+                    isDeleting = true;
+                    setTimeout(typeLoop, pauseDuration);
+                    return;
+                }
+                setTimeout(typeLoop, typeSpeed + Math.random() * 40);
+            } else {
+                typingText.textContent = currentPhrase.substring(0, charIndex - 1);
+                charIndex--;
+                if (charIndex <= 0) {
+                    isDeleting = false;
+                    phraseIndex = (phraseIndex + 1) % phrases.length;
+                    setTimeout(typeLoop, typeSpeed * 2);
+                    return;
+                }
+                setTimeout(typeLoop, deleteSpeed);
+            }
+        }
+        setTimeout(typeLoop, 800);
+    })();
+
+    /* ==================== Canvas粒子系统 ==================== */
+    (function() {
+        const canvas = document.getElementById('particleCanvas');
+        const ctx = canvas.getContext('2d');
+        let width = canvas.width = window.innerWidth;
+        let height = canvas.height = window.innerHeight;
+        const isMobile = window.innerWidth < 768 || /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent);
+        const config = {
+            maxParticles: isMobile ? 50 : 180,
+            mouseEmitRate: isMobile ? 2 : 5,
+            keyEmitRate: isMobile ? 1 : 3,
+            autoEmitInterval: isMobile ? 200 : 80,
+            particleLifespan: isMobile ? 120 : 180,
+            particleSpeed: isMobile ? 0.5 : 1.2,
+            fontSize: isMobile ? 10 : 14,
+        };
+        const aiKeywords = ['<AI />', 'RAG', 'Agent', 'Prompt', 'LLM', '🚀', '⚡', '🧠', '百炼', '星火', 'ECS', 'AIGC', '微调', '数据标注', '智能体', '云计算', 'Python', 'Linux', 'OSS', 'RDS', 'Token', 'Embedding'];
+
+        class Particle {
+            constructor(x, y, char, isFromKeyboard = false) {
+                this.x = x;
+                this.y = y;
+                this.char = char;
+                this.isFromKeyboard = isFromKeyboard;
+                this.alpha = 1;
+                this.life = 0;
+                this.maxLife = config.particleLifespan + Math.random() * 60;
+                const speedFactor = isFromKeyboard ? 1.8 : 0.6;
+                this.vx = (Math.random() - 0.5) * config.particleSpeed * speedFactor;
+                this.vy = (isFromKeyboard ? -1 : -0.3) * config.particleSpeed * speedFactor * (0.5 + Math.random());
+                this.size = config.fontSize * (0.7 + Math.random() * 0.6);
+                const colors = isFromKeyboard ? ['#00e5ff', '#a855f7', '#ec4899', '#ffffff'] : ['#00e5ff', '#a855f7', '#ec4899'];
+                this.color = colors[Math.floor(Math.random() * colors.length)];
+                this.gravity = 0.005;
+            }
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+                this.vy += this.gravity;
+                this.vx += (Math.random() - 0.5) * 0.02;
+                this.life++;
+                if (this.life > this.maxLife * 0.7) {
+                    this.alpha = Math.max(0, 1 - (this.life - this.maxLife * 0.7) / (this.maxLife * 0.3));
+                }
+            }
+            isDead() { return this.life >= this.maxLife || this.alpha <= 0 || this.y > height + 20 || this.x < -50 || this.x > width + 50; }
+            draw(ctx) {
+                ctx.save();
+                ctx.globalAlpha = this.alpha;
+                ctx.fillStyle = this.color;
+                ctx.font = `${this.size}px 'Fira Code', 'Consolas', monospace`;
+                ctx.shadowColor = this.color;
+                ctx.shadowBlur = this.isFromKeyboard ? 8 : 4;
+                ctx.fillText(this.char, this.x, this.y);
+                ctx.restore();
+            }
+        }
+
+        const particles = [];
+        let mouseX = 0, mouseY = 0, mouseActive = false, autoEmitTimer = 0, animationFrameId = null;
+
+        function emitAutoKeyword() {
+            const randomChar = aiKeywords[Math.floor(Math.random() * aiKeywords.length)];
+            const x = Math.random() * width;
+            const y = Math.random() * height * 0.6;
+            particles.push(new Particle(x, y, randomChar, false));
+        }
+        function emitMouseParticles(x, y) {
+            for (let i = 0; i < config.mouseEmitRate; i++) {
+                const offsetX = (Math.random() - 0.5) * 30;
+                const offsetY = (Math.random() - 0.5) * 30;
+                const chars = ['●', '○', '✦', '✧', '·', '◆', '◇'];
+                const char = chars[Math.floor(Math.random() * chars.length)];
+                particles.push(new Particle(x + offsetX, y + offsetY, char, false));
+            }
+        }
+        function emitKeyParticle(char, x, y) {
+            for (let i = 0; i < config.keyEmitRate; i++) {
+                const offsetX = (Math.random() - 0.5) * 40;
+                const offsetY = (Math.random() - 0.5) * 20;
+                particles.push(new Particle(x + offsetX, y + offsetY, char, true));
+            }
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, width, height);
+            autoEmitTimer++;
+            if (autoEmitTimer >= config.autoEmitInterval) {
+                autoEmitTimer = 0;
+                const emitCount = isMobile ? 1 : 3;
+                for (let i = 0; i < emitCount; i++) emitAutoKeyword();
+            }
+            while (particles.length > config.maxParticles) particles.shift();
+            for (let i = particles.length - 1; i >= 0; i--) {
+                const p = particles[i];
+                p.update();
+                if (p.isDead()) particles.splice(i, 1);
+                else p.draw(ctx);
+            }
+            if (mouseActive) {
+                const gradient = ctx.createRadialGradient(mouseX, mouseY, 0, mouseX, mouseY, 30);
+                gradient.addColorStop(0, 'rgba(168, 85, 247, 0.25)');
+                gradient.addColorStop(1, 'rgba(168, 85, 247, 0)');
+                ctx.fillStyle = gradient;
+                ctx.beginPath();
+                ctx.arc(mouseX, mouseY, 30, 0, Math.PI * 2);
+                ctx.fill();
+            }
+            animationFrameId = requestAnimationFrame(animate);
+        }
+
+        function resizeCanvas() {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+        }
+
+        document.addEventListener('mousemove', function(e) {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            mouseActive = true;
+            emitMouseParticles(mouseX, mouseY);
+        });
+        document.addEventListener('touchmove', function(e) {
+            if (e.touches.length > 0) {
+                mouseX = e.touches[0].clientX;
+                mouseY = e.touches[0].clientY;
+                mouseActive = true;
+                if (Math.random() > 0.5) emitMouseParticles(mouseX, mouseY);
+            }
+        });
+        document.addEventListener('mouseleave', () => mouseActive = false);
+        document.addEventListener('keydown', function(e) {
+            const tagName = e.target.tagName.toLowerCase();
+            if (tagName === 'input' || tagName === 'textarea' || e.target.isContentEditable) return;
+            if (e.key.length === 1 || e.key === 'Enter' || e.key === 'Backspace') {
+                const displayChar = e.key === 'Enter' ? '⏎' : e.key === 'Backspace' ? '⌫' : e.key;
+                const x = mouseX + (Math.random() - 0.5) * 50;
+                const y = mouseY + (Math.random() - 0.5) * 50;
+                emitKeyParticle(displayChar, x, y);
+            }
+        });
+        window.addEventListener('resize', resizeCanvas);
+        animate();
+        document.addEventListener('visibilitychange', function() {
+            if (document.hidden) {
+                if (animationFrameId) { cancelAnimationFrame(animationFrameId); animationFrameId = null; }
+            } else {
+                if (!animationFrameId) animate();
+            }
+        });
+    })();
+
+    /* ==================== 弹幕留言系统 ==================== */
+    (function() {
+        const danmakuContainer = document.getElementById('danmakuContainer');
+        const danmakuInput = document.getElementById('danmakuInput');
+        const danmakuSendBtn = document.getElementById('danmakuSendBtn');
+        const danmakuColors = ['#00e5ff', '#a855f7', '#ec4899', '#ffd700', '#00ff88', '#ff6b6b', '#7c3aed', '#00bfff', '#ff8c42', '#64ffda', '#e040fb', '#40c4ff'];
+        const verticalPositions = [12, 20, 28, 36, 44, 52, 60, 68, 76, 84];
+
+        function sendDanmaku(text) {
+            const cleanText = text.trim();
+            if (!cleanText) return;
+            const danmakuItem = document.createElement('div');
+            danmakuItem.className = 'danmaku-item';
+            danmakuItem.textContent = cleanText;
+            const color = danmakuColors[Math.floor(Math.random() * danmakuColors.length)];
+            danmakuItem.style.color = color;
+            const vPos = verticalPositions[Math.floor(Math.random() * verticalPositions.length)];
+            danmakuItem.style.top = `${vPos + (Math.random() * 6 - 3)}%`;
+            const baseDuration = 8;
+            const lengthFactor = cleanText.length * 0.08;
+            const duration = Math.min(14, Math.max(6, baseDuration + lengthFactor + Math.random() * 3));
+            danmakuItem.style.animationDuration = `${duration}s`;
+            danmakuItem.style.fontSize = `${1 + Math.random() * 0.5}rem`;
+            danmakuContainer.appendChild(danmakuItem);
+            danmakuItem.addEventListener('animationend', function() {
+                if (danmakuItem.parentNode === danmakuContainer) danmakuContainer.removeChild(danmakuItem);
+            });
+        }
+
+        function handleSend() {
+            const text = danmakuInput.value;
+            if (text.trim()) {
+                sendDanmaku(text);
+                danmakuInput.value = '';
+            } else {
+                danmakuInput.style.borderColor = 'var(--accent-pink)';
+                setTimeout(() => danmakuInput.style.borderColor = '', 500);
+            }
+        }
+        danmakuSendBtn.addEventListener('click', handleSend);
+        danmakuInput.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') { e.preventDefault(); handleSend(); }
+        });
+        window.sendDanmaku = sendDanmaku;
+        setTimeout(() => sendDanmaku('👋 欢迎来到马楚轩的简历！'), 1500);
+        setTimeout(() => sendDanmaku('💡 试试在页面空白处打字！'), 3000);
+    })();
+
+    /* ==================== 证书图片画廊 + 灯箱 ==================== */
+    function initCertGallery() {
+        const container = document.getElementById('certGalleryContainer');
+        if (!container) return;
+        const imageFiles = [
+            '01.jpg', '02.jpg', '03.jpg', '04.jpg', '05.jpg', '06.jpg', '07.jpg',
+            '08.jpg', '09.jpg', '10.jpg', '11.jpg', '12.jpg', '13.jpg', '14.jpg'
+        ];
+
+        // 清空容器
+        container.innerHTML = '';
+
+        // 动态创建图片卡片
+        imageFiles.forEach((file, index) => {
+            const card = document.createElement('div');
+            card.className = 'cert-image-card';
+            card.setAttribute('data-aos', 'fade-up');
+            card.setAttribute('data-aos-delay', `${(index % 4) * 50}`);
+
+            const img = document.createElement('img');
+            img.src = file;
+            img.alt = `证书扫描件 ${String(index + 1).padStart(2, '0')}`;
+            img.loading = 'lazy';
+            img.setAttribute('data-full', file); // 存储大图路径
+
+            const label = document.createElement('div');
+            label.className = 'cert-label';
+            label.textContent = `证书 ${String(index + 1).padStart(2, '0')}`;
+
+            card.appendChild(img);
+            card.appendChild(label);
+
+            // 点击打开灯箱
+            card.addEventListener('click', function() {
+                openLightbox(file, img.alt);
+            });
+
+            container.appendChild(card);
+        });
+
+        // 刷新AOS，使动态添加的元素具有动画效果
+        if (window.AOS) {
+            setTimeout(() => AOS.refreshHard(), 100);
+        }
+
+        // 灯箱功能
+        function openLightbox(src, alt) {
+            // 如果已存在灯箱则移除
+            const existing = document.querySelector('.lightbox-overlay');
+            if (existing) existing.remove();
+
+            const overlay = document.createElement('div');
+            overlay.className = 'lightbox-overlay';
+            overlay.setAttribute('role', 'dialog');
+            overlay.setAttribute('aria-label', '证书大图预览');
+
+            const img = document.createElement('img');
+            img.src = src;
+            img.alt = alt;
+
+            overlay.appendChild(img);
+            document.body.appendChild(overlay);
+
+            // 点击遮罩关闭
+            overlay.addEventListener('click', function() {
+                overlay.remove();
+            });
+            // ESC键关闭
+            document.addEventListener('keydown', function escHandler(e) {
+                if (e.key === 'Escape') {
+                    overlay.remove();
+                    document.removeEventListener('keydown', escHandler);
+                }
+            });
+        }
+
+        // 暴露打开灯箱方法到全局（可选）
+        window.openLightbox = openLightbox;
+    }
+
+    /* ==================== 导航栏滚动效果 ==================== */
+    (function() {
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 50) navbar.classList.add('scrolled');
+            else navbar.classList.remove('scrolled');
+        });
+        if (window.scrollY > 50) navbar.classList.add('scrolled');
+    })();
+
+    /* ==================== 平滑滚动 ==================== */
+    (function() {
+        document.querySelectorAll('a[href^="#"]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                const targetId = this.getAttribute('href');
+                if (targetId.length > 1) {
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        e.preventDefault();
+                        targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                }
+            });
+        });
+    })();
+</script>
+</body>
+</html>
