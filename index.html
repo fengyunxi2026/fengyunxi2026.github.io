@@ -348,18 +348,27 @@
         .exp-tag-purple { background: rgba(168, 85, 247, 0.08); border-color: rgba(168, 85, 247, 0.25); color: var(--accent-purple); }
         .exp-tag-pink { background: rgba(236, 72, 153, 0.08); border-color: rgba(236, 72, 153, 0.25); color: var(--accent-pink); }
 
-        /* 实践印记分组标题 */
-        .practice-group-title {
+        /* ==================== 影像档案分组标题 ==================== */
+        .archive-group-title {
             display: flex; align-items: center; gap: 0.75rem;
             font-family: 'Fira Code', 'Consolas', monospace;
             font-size: 0.95rem; font-weight: 600;
             margin-bottom: 1.25rem; letter-spacing: 0.04em;
+            flex-wrap: wrap;
         }
-        .practice-group-title::before {
+        .archive-group-title::before {
             content: ''; width: 4px; height: 20px; border-radius: 2px;
+            flex-shrink: 0;
         }
-        .practice-group-title.cyan::before { background: var(--accent-cyan); box-shadow: 0 0 12px var(--accent-cyan); }
-        .practice-group-title.purple::before { background: var(--accent-purple); box-shadow: 0 0 12px var(--accent-purple); }
+        .archive-group-title.cyan::before { background: var(--accent-cyan); box-shadow: 0 0 12px var(--accent-cyan); }
+        .archive-group-title.purple::before { background: var(--accent-purple); box-shadow: 0 0 12px var(--accent-purple); }
+        .archive-group-title.pink::before { background: var(--accent-pink); box-shadow: 0 0 12px var(--accent-pink); }
+        .archive-group-title .group-sub {
+            color: var(--text-muted);
+            font-size: 0.72rem;
+            font-weight: 400;
+            letter-spacing: 0.02em;
+        }
 
         @media (max-width: 768px) {
             .glass-card { border-radius: 0.75rem; }
@@ -388,11 +397,10 @@
                 <div class="hidden md:flex items-center gap-5 text-sm font-medium">
                     <a href="#about" class="hover:text-[var(--accent-cyan)] transition-colors duration-300">关于我</a>
                     <a href="#experience" class="hover:text-[var(--accent-cyan)] transition-colors duration-300">经历</a>
-                    <a href="#practice" class="hover:text-[var(--accent-cyan)] transition-colors duration-300">实践</a>
                     <a href="#skills" class="hover:text-[var(--accent-cyan)] transition-colors duration-300">技能</a>
                     <a href="#game" class="hover:text-[var(--accent-cyan)] transition-colors duration-300">小游戏</a>
                     <a href="#qixi" class="hover:text-[var(--accent-cyan)] transition-colors duration-300">七夕粒子</a>
-                    <a href="#certs" class="hover:text-[var(--accent-cyan)] transition-colors duration-300">证书</a>
+                    <a href="#certs" class="hover:text-[var(--accent-cyan)] transition-colors duration-300">证书档案</a>
                     <a href="#guestbook" class="hover:text-[var(--accent-cyan)] transition-colors duration-300">留言</a>
                 </div>
                 <button id="themeToggle" class="flex items-center gap-2 px-3 py-2 rounded-full border transition-all duration-300 hover:scale-110 active:scale-95 cursor-pointer"
@@ -438,9 +446,6 @@
                 <a href="#experience" class="px-6 py-2.5 rounded-lg border transition-all duration-300 hover:translate-y-[-3px] cursor-pointer" style="border-color: var(--border-color); background: var(--bg-card); backdrop-filter: blur(var(--glass-blur));">
                     <i class="fa-solid fa-code-branch mr-2 text-[var(--accent-purple)]"></i><span>成长轨迹</span>
                 </a>
-                <a href="#practice" class="px-6 py-2.5 rounded-lg border transition-all duration-300 hover:translate-y-[-3px] cursor-pointer" style="border-color: var(--border-color); background: var(--bg-card); backdrop-filter: blur(var(--glass-blur));">
-                    <i class="fa-solid fa-image mr-2 text-[var(--accent-cyan)]"></i><span>实践印记</span>
-                </a>
                 <a href="#game" class="px-6 py-2.5 rounded-lg border transition-all duration-300 hover:translate-y-[-3px] cursor-pointer" style="border-color: var(--border-color); background: var(--bg-card); backdrop-filter: blur(var(--glass-blur));">
                     <i class="fa-solid fa-gamepad mr-2 text-[var(--accent-cyan)]"></i><span>玩小游戏</span>
                 </a>
@@ -468,13 +473,12 @@
             <div class="flex justify-center mb-12" data-aos="zoom-in" data-aos-duration="900">
                 <div class="relative">
                     <div class="avatar-frame w-32 h-32 sm:w-40 sm:h-40">
-                        <img src="xin1/头像.png" alt="马楚轩的头像" loading="lazy">
+                        <img src="xin1/头像.jpg" alt="马楚轩的头像" loading="lazy">
                     </div>
                     <div class="absolute -bottom-2 -right-2 px-3 py-1 rounded-full text-xs font-mono font-bold shadow-lg"
                          style="background: var(--gradient-text); color: #fff;">
                         MCX.dev
                     </div>
-                    <!-- 装饰点 -->
                     <div class="absolute -top-1 -left-1 w-3 h-3 rounded-full bg-[var(--accent-cyan)] shadow-[0_0_12px_var(--accent-cyan)] animate-pulse"></div>
                     <div class="absolute -top-1 -right-1 w-3 h-3 rounded-full bg-[var(--accent-pink)] shadow-[0_0_12px_var(--accent-pink)] animate-pulse"></div>
                 </div>
@@ -610,98 +614,6 @@
         </div>
     </section>
 
-    <!-- ==================== 实践印记（新增：AI 编程 + 华为云实训） ==================== -->
-    <section id="practice" class="py-20 px-4 sm:px-8">
-        <div class="max-w-6xl mx-auto">
-            <h2 class="text-3xl sm:text-4xl font-bold mb-4 text-center font-mono" data-aos="fade-up" data-aos-duration="700">
-                <i class="fa-solid fa-image mr-3 text-[var(--accent-cyan)]"></i><span class="gradient-text">实践印记</span>
-            </h2>
-            <p class="text-center text-[var(--text-muted)] mb-12 text-xs sm:text-sm font-mono" data-aos="fade-up" data-aos-duration="700" data-aos-delay="100">
-                <span class="text-[var(--accent-cyan)]">$</span> ls -la ./practice --proof
-            </p>
-
-            <!-- 分组一：AI 编程探索 -->
-            <div class="mb-14" data-aos="fade-up" data-aos-duration="800">
-                <h3 class="practice-group-title cyan text-[var(--accent-cyan)]">
-                    <span># AI 编程探索</span>
-                    <span class="text-[var(--text-muted)] text-xs font-normal">// vibecoding · prompt engineering</span>
-                </h3>
-                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-                    <div class="cert-image-card" data-aos="fade-up" data-aos-delay="0">
-                        <img src="xin1/AI编程.png" alt="AI 编程实践 01" loading="lazy">
-                        <div class="cert-label">AI 编程 · 01</div>
-                    </div>
-                    <div class="cert-image-card" data-aos="fade-up" data-aos-delay="50">
-                        <img src="xin1/AI编程2.png" alt="AI 编程实践 02" loading="lazy">
-                        <div class="cert-label">AI 编程 · 02</div>
-                    </div>
-                    <div class="cert-image-card" data-aos="fade-up" data-aos-delay="100">
-                        <img src="xin1/AI编程3.png" alt="AI 编程实践 03" loading="lazy">
-                        <div class="cert-label">AI 编程 · 03</div>
-                    </div>
-                    <div class="cert-image-card" data-aos="fade-up" data-aos-delay="150">
-                        <img src="xin1/AI编程4.png" alt="AI 编程实践 04" loading="lazy">
-                        <div class="cert-label">AI 编程 · 04</div>
-                    </div>
-                    <div class="cert-image-card" data-aos="fade-up" data-aos-delay="200">
-                        <img src="xin1/AI编程5.png" alt="AI 编程实践 05" loading="lazy">
-                        <div class="cert-label">AI 编程 · 05</div>
-                    </div>
-                    <div class="cert-image-card" data-aos="fade-up" data-aos-delay="250">
-                        <img src="xin1/AI编程6.png" alt="AI 编程实践 06" loading="lazy">
-                        <div class="cert-label">AI 编程 · 06</div>
-                    </div>
-                    <div class="cert-image-card" data-aos="fade-up" data-aos-delay="300">
-                        <img src="xin1/AI编程7.png" alt="AI 编程实践 07" loading="lazy">
-                        <div class="cert-label">AI 编程 · 07</div>
-                    </div>
-                    <div class="cert-image-card" data-aos="fade-up" data-aos-delay="350">
-                        <img src="xin1/编程.png" alt="编程实践" loading="lazy">
-                        <div class="cert-label">编程 · 实践</div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 分组二：华为云实训 -->
-            <div data-aos="fade-up" data-aos-duration="800">
-                <h3 class="practice-group-title purple text-[var(--accent-purple)]">
-                    <span># 华为云实训</span>
-                    <span class="text-[var(--text-muted)] text-xs font-normal">// huawei cloud · hands-on</span>
-                </h3>
-                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-                    <div class="cert-image-card" data-aos="fade-up" data-aos-delay="0">
-                        <img src="xin1/华为1.png" alt="华为云实训 01" loading="lazy">
-                        <div class="cert-label">华为云 · 01</div>
-                    </div>
-                    <div class="cert-image-card" data-aos="fade-up" data-aos-delay="50">
-                        <img src="xin1/华为2.png" alt="华为云实训 02" loading="lazy">
-                        <div class="cert-label">华为云 · 02</div>
-                    </div>
-                    <div class="cert-image-card" data-aos="fade-up" data-aos-delay="100">
-                        <img src="xin1/华为3.png" alt="华为云实训 03" loading="lazy">
-                        <div class="cert-label">华为云 · 03</div>
-                    </div>
-                    <div class="cert-image-card" data-aos="fade-up" data-aos-delay="150">
-                        <img src="xin1/华为4.png" alt="华为云实训 04" loading="lazy">
-                        <div class="cert-label">华为云 · 04</div>
-                    </div>
-                    <div class="cert-image-card" data-aos="fade-up" data-aos-delay="200">
-                        <img src="xin1/华为5.png" alt="华为云实训 05" loading="lazy">
-                        <div class="cert-label">华为云 · 05</div>
-                    </div>
-                    <div class="cert-image-card" data-aos="fade-up" data-aos-delay="250">
-                        <img src="xin1/华为6.png" alt="华为云实训 06" loading="lazy">
-                        <div class="cert-label">华为云 · 06</div>
-                    </div>
-                    <div class="cert-image-card" data-aos="fade-up" data-aos-delay="300">
-                        <img src="xin1/华为7.png" alt="华为云实训 07" loading="lazy">
-                        <div class="cert-label">华为云 · 07</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section id="skills" class="py-20 px-4 sm:px-8">
         <div class="max-w-6xl mx-auto">
             <h2 class="text-3xl sm:text-4xl font-bold mb-12 text-center font-mono" data-aos="fade-up" data-aos-duration="700">
@@ -801,12 +713,14 @@
         </div>
     </section>
 
+    <!-- ==================== 获奖与证书（含整合后的影像档案） ==================== -->
     <section id="certs" class="py-20 px-4 sm:px-8">
         <div class="max-w-6xl mx-auto">
             <h2 class="text-3xl sm:text-4xl font-bold mb-12 text-center font-mono" data-aos="fade-up" data-aos-duration="700">
                 <i class="fa-solid fa-award mr-3 text-[var(--accent-pink)]"></i><span class="gradient-text">获奖与证书</span>
             </h2>
 
+            <!-- 三张证书概览卡片 -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div class="glass-card cert-card tech-border p-7" data-aos="fade-up" data-aos-duration="800">
                     <div class="flex items-center gap-4 mb-5">
@@ -836,7 +750,7 @@
                 </div>
             </div>
 
-            <!-- 时间轴 -->
+            <!-- 认证时间轴 -->
             <div class="mt-12 glass-card p-8" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
                 <h3 class="text-lg font-bold mb-6 flex items-center gap-3"><i class="fa-solid fa-timeline text-[var(--accent-cyan)]"></i>认证时间轴</h3>
                 <div class="relative">
@@ -849,15 +763,164 @@
                 </div>
             </div>
 
-            <!-- 证书扫描件展示区域 -->
-            <div class="mt-12" data-aos="fade-up" data-aos-duration="800">
-                <h3 class="text-lg font-bold mb-6 flex items-center gap-3">
-                    <i class="fa-solid fa-images text-[var(--accent-cyan)]"></i>
-                    证书扫描件展示
-                </h3>
-                <div id="certGalleryContainer" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-                    <!-- 由JavaScript动态生成图片卡片 -->
+            <!-- ==================== 影像档案（整合后的统一展示区） ==================== -->
+            <div class="mt-16" data-aos="fade-up" data-aos-duration="800">
+                <div class="text-center mb-10">
+                    <h3 class="text-2xl sm:text-3xl font-bold font-mono mb-3">
+                        <i class="fa-solid fa-images mr-3 text-[var(--accent-cyan)]"></i>
+                        <span class="gradient-text">影像档案</span>
+                    </h3>
+                    <p class="text-xs sm:text-sm text-[var(--text-muted)] font-mono">
+                        <span class="text-[var(--accent-cyan)]">$</span> find ./archive -type f | sort
+                    </p>
                 </div>
+
+                <!-- 分组一：认证证书 -->
+                <div class="mb-14" data-aos="fade-up" data-aos-duration="800">
+                    <h4 class="archive-group-title pink text-[var(--accent-pink)]">
+                        <span># 认证证书</span>
+                        <span class="group-sub">// 14 张 · 已通过技能评估</span>
+                    </h4>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+                        <div class="cert-image-card" data-aos="fade-up" data-aos-delay="0">
+                            <img src="xin1/1.png" alt="证书 01" loading="lazy">
+                            <div class="cert-label">证书 · 01</div>
+                        </div>
+                        <div class="cert-image-card" data-aos="fade-up" data-aos-delay="30">
+                            <img src="xin1/2.png" alt="证书 02" loading="lazy">
+                            <div class="cert-label">证书 · 02</div>
+                        </div>
+                        <div class="cert-image-card" data-aos="fade-up" data-aos-delay="60">
+                            <img src="xin1/3.png" alt="证书 03" loading="lazy">
+                            <div class="cert-label">证书 · 03</div>
+                        </div>
+                        <div class="cert-image-card" data-aos="fade-up" data-aos-delay="90">
+                            <img src="xin1/4.png" alt="证书 04" loading="lazy">
+                            <div class="cert-label">证书 · 04</div>
+                        </div>
+                        <div class="cert-image-card" data-aos="fade-up" data-aos-delay="0">
+                            <img src="xin1/5.png" alt="证书 05" loading="lazy">
+                            <div class="cert-label">证书 · 05</div>
+                        </div>
+                        <div class="cert-image-card" data-aos="fade-up" data-aos-delay="30">
+                            <img src="xin1/6.png" alt="证书 06" loading="lazy">
+                            <div class="cert-label">证书 · 06</div>
+                        </div>
+                        <div class="cert-image-card" data-aos="fade-up" data-aos-delay="60">
+                            <img src="xin1/7.png" alt="证书 07" loading="lazy">
+                            <div class="cert-label">证书 · 07</div>
+                        </div>
+                        <div class="cert-image-card" data-aos="fade-up" data-aos-delay="90">
+                            <img src="xin1/8.png" alt="证书 08" loading="lazy">
+                            <div class="cert-label">证书 · 08</div>
+                        </div>
+                        <div class="cert-image-card" data-aos="fade-up" data-aos-delay="0">
+                            <img src="xin1/9.png" alt="证书 09" loading="lazy">
+                            <div class="cert-label">证书 · 09</div>
+                        </div>
+                        <div class="cert-image-card" data-aos="fade-up" data-aos-delay="30">
+                            <img src="xin1/10.png" alt="证书 10" loading="lazy">
+                            <div class="cert-label">证书 · 10</div>
+                        </div>
+                        <div class="cert-image-card" data-aos="fade-up" data-aos-delay="60">
+                            <img src="xin1/11.png" alt="证书 11" loading="lazy">
+                            <div class="cert-label">证书 · 11</div>
+                        </div>
+                        <div class="cert-image-card" data-aos="fade-up" data-aos-delay="90">
+                            <img src="xin1/12.png" alt="证书 12" loading="lazy">
+                            <div class="cert-label">证书 · 12</div>
+                        </div>
+                        <div class="cert-image-card" data-aos="fade-up" data-aos-delay="0">
+                            <img src="xin1/13.png" alt="证书 13" loading="lazy">
+                            <div class="cert-label">证书 · 13</div>
+                        </div>
+                        <div class="cert-image-card" data-aos="fade-up" data-aos-delay="30">
+                            <img src="xin1/14.png" alt="证书 14" loading="lazy">
+                            <div class="cert-label">证书 · 14</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 分组二：AI 编程探索 -->
+                <div class="mb-14" data-aos="fade-up" data-aos-duration="800">
+                    <h4 class="archive-group-title cyan text-[var(--accent-cyan)]">
+                        <span># AI 编程探索</span>
+                        <span class="group-sub">// vibecoding · prompt engineering</span>
+                    </h4>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+                        <div class="cert-image-card" data-aos="fade-up" data-aos-delay="0">
+                            <img src="xin1/AI编程.png" alt="AI 编程实践 01" loading="lazy">
+                            <div class="cert-label">AI 编程 · 01</div>
+                        </div>
+                        <div class="cert-image-card" data-aos="fade-up" data-aos-delay="30">
+                            <img src="xin1/AI编程2.png" alt="AI 编程实践 02" loading="lazy">
+                            <div class="cert-label">AI 编程 · 02</div>
+                        </div>
+                        <div class="cert-image-card" data-aos="fade-up" data-aos-delay="60">
+                            <img src="xin1/AI编程3.png" alt="AI 编程实践 03" loading="lazy">
+                            <div class="cert-label">AI 编程 · 03</div>
+                        </div>
+                        <div class="cert-image-card" data-aos="fade-up" data-aos-delay="90">
+                            <img src="xin1/AI编程4.png" alt="AI 编程实践 04" loading="lazy">
+                            <div class="cert-label">AI 编程 · 04</div>
+                        </div>
+                        <div class="cert-image-card" data-aos="fade-up" data-aos-delay="0">
+                            <img src="xin1/AI编程5.png" alt="AI 编程实践 05" loading="lazy">
+                            <div class="cert-label">AI 编程 · 05</div>
+                        </div>
+                        <div class="cert-image-card" data-aos="fade-up" data-aos-delay="30">
+                            <img src="xin1/AI编程6.png" alt="AI 编程实践 06" loading="lazy">
+                            <div class="cert-label">AI 编程 · 06</div>
+                        </div>
+                        <div class="cert-image-card" data-aos="fade-up" data-aos-delay="60">
+                            <img src="xin1/AI编程7.png" alt="AI 编程实践 07" loading="lazy">
+                            <div class="cert-label">AI 编程 · 07</div>
+                        </div>
+                        <div class="cert-image-card" data-aos="fade-up" data-aos-delay="90">
+                            <img src="xin1/编程.png" alt="编程实践" loading="lazy">
+                            <div class="cert-label">编程 · 实践</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 分组三：华为云实训 -->
+                <div data-aos="fade-up" data-aos-duration="800">
+                    <h4 class="archive-group-title purple text-[var(--accent-purple)]">
+                        <span># 华为云实训</span>
+                        <span class="group-sub">// huawei cloud · hands-on</span>
+                    </h4>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+                        <div class="cert-image-card" data-aos="fade-up" data-aos-delay="0">
+                            <img src="xin1/华为1.png" alt="华为云实训 01" loading="lazy">
+                            <div class="cert-label">华为云 · 01</div>
+                        </div>
+                        <div class="cert-image-card" data-aos="fade-up" data-aos-delay="30">
+                            <img src="xin1/华为2.png" alt="华为云实训 02" loading="lazy">
+                            <div class="cert-label">华为云 · 02</div>
+                        </div>
+                        <div class="cert-image-card" data-aos="fade-up" data-aos-delay="60">
+                            <img src="xin1/华为3.png" alt="华为云实训 03" loading="lazy">
+                            <div class="cert-label">华为云 · 03</div>
+                        </div>
+                        <div class="cert-image-card" data-aos="fade-up" data-aos-delay="90">
+                            <img src="xin1/华为4.png" alt="华为云实训 04" loading="lazy">
+                            <div class="cert-label">华为云 · 04</div>
+                        </div>
+                        <div class="cert-image-card" data-aos="fade-up" data-aos-delay="0">
+                            <img src="xin1/华为5.png" alt="华为云实训 05" loading="lazy">
+                            <div class="cert-label">华为云 · 05</div>
+                        </div>
+                        <div class="cert-image-card" data-aos="fade-up" data-aos-delay="30">
+                            <img src="xin1/华为6.png" alt="华为云实训 06" loading="lazy">
+                            <div class="cert-label">华为云 · 06</div>
+                        </div>
+                        <div class="cert-image-card" data-aos="fade-up" data-aos-delay="60">
+                            <img src="xin1/华为7.png" alt="华为云实训 07" loading="lazy">
+                            <div class="cert-label">华为云 · 07</div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
@@ -934,7 +997,6 @@
     /* ==================== AOS初始化 ==================== */
     document.addEventListener('DOMContentLoaded', function() {
         AOS.init({ duration: 700, easing: 'ease-out-cubic', once: false, offset: 80 });
-        initCertGallery();
     });
 
     /* ==================== 深色/浅色模式切换 ==================== */
@@ -1238,47 +1300,7 @@
         setTimeout(() => sendDanmaku('💡 试试在页面空白处打字！'), 3000);
     })();
 
-    /* ==================== 证书图片画廊 + 灯箱（图片改为 xin1/1~14.png） ==================== */
-    function initCertGallery() {
-        const container = document.getElementById('certGalleryContainer');
-        if (!container) return;
-        const imageFiles = [
-            '1.png', '2.png', '3.png', '4.png', '5.png', '6.png', '7.png',
-            '8.png', '9.png', '10.png', '11.png', '12.png', '13.png', '14.png'
-        ];
-
-        container.innerHTML = '';
-
-        imageFiles.forEach((file, index) => {
-            const card = document.createElement('div');
-            card.className = 'cert-image-card';
-            card.setAttribute('data-aos', 'fade-up');
-            card.setAttribute('data-aos-delay', `${(index % 4) * 50}`);
-
-            const img = document.createElement('img');
-            img.src = 'xin1/' + file;
-            img.alt = `证书扫描件 ${String(index + 1).padStart(2, '0')}`;
-            img.loading = 'lazy';
-            img.setAttribute('data-full', 'xin1/' + file);
-
-            const label = document.createElement('div');
-            label.className = 'cert-label';
-            label.textContent = `证书 ${String(index + 1).padStart(2, '0')}`;
-
-            card.appendChild(img);
-            card.appendChild(label);
-
-            card.addEventListener('click', function() {
-                openLightbox('xin1/' + file, img.alt);
-            });
-
-            container.appendChild(card);
-        });
-
-        if (window.AOS) setTimeout(() => AOS.refreshHard(), 100);
-    }
-
-    /* ==================== 灯箱（全局事件委托，覆盖证书 & 实践图片） ==================== */
+    /* ==================== 灯箱（全局事件委托，覆盖所有图片卡片） ==================== */
     document.addEventListener('click', function(e) {
         const card = e.target.closest('.cert-image-card');
         if (!card) return;
