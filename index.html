@@ -28,18 +28,9 @@
                         'pulse-slow': 'pulse 3s ease-in-out infinite',
                     },
                     keyframes: {
-                        blink: {
-                            '0%, 100%': { opacity: '1' },
-                            '50%': { opacity: '0' },
-                        },
-                        gradientShift: {
-                            '0%, 100%': { backgroundPosition: '0% 50%' },
-                            '50%': { backgroundPosition: '100% 50%' },
-                        },
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0px)' },
-                            '50%': { transform: 'translateY(-15px)' },
-                        },
+                        blink: { '0%, 100%': { opacity: '1' }, '50%': { opacity: '0' } },
+                        gradientShift: { '0%, 100%': { backgroundPosition: '0% 50%' }, '50%': { backgroundPosition: '100% 50%' } },
+                        float: { '0%, 100%': { transform: 'translateY(0px)' }, '50%': { transform: 'translateY(-15px)' } },
                     },
                 },
             },
@@ -93,17 +84,9 @@
             --scrollbar-thumb: #b0b0cc;
         }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
 
-        html {
-            scroll-behavior: smooth;
-            scrollbar-width: thin;
-            scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
-        }
+        html { scroll-behavior: smooth; scrollbar-width: thin; scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track); }
 
         body {
             font-family: 'Inter', 'PingFang SC', 'Microsoft YaHei', sans-serif;
@@ -117,17 +100,9 @@
             line-height: 1.6;
         }
 
-        ::-webkit-scrollbar {
-            width: 6px;
-            height: 6px;
-        }
-        ::-webkit-scrollbar-track {
-            background: var(--scrollbar-track);
-        }
-        ::-webkit-scrollbar-thumb {
-            background: var(--scrollbar-thumb);
-            border-radius: 3px;
-        }
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: var(--scrollbar-track); }
+        ::-webkit-scrollbar-thumb { background: var(--scrollbar-thumb); border-radius: 3px; }
 
         .glass-card {
             background: var(--bg-card);
@@ -140,7 +115,6 @@
             position: relative;
             overflow: hidden;
         }
-
         .glass-card:hover {
             background: var(--bg-card-hover);
             transform: translateY(-6px);
@@ -155,81 +129,36 @@
             background-clip: text;
         }
 
-        .tech-border {
-            position: relative;
-        }
+        .tech-border { position: relative; }
         .tech-border::before {
-            content: '';
-            position: absolute;
-            top: -1px;
-            left: -1px;
-            width: 30px;
-            height: 30px;
-            border-top: 2px solid var(--accent-cyan);
-            border-left: 2px solid var(--accent-cyan);
-            border-radius: 0.5rem 0 0 0;
-            opacity: 0.7;
-            pointer-events: none;
-            transition: all 0.3s ease;
+            content: ''; position: absolute; top: -1px; left: -1px; width: 30px; height: 30px;
+            border-top: 2px solid var(--accent-cyan); border-left: 2px solid var(--accent-cyan);
+            border-radius: 0.5rem 0 0 0; opacity: 0.7; pointer-events: none; transition: all 0.3s ease;
         }
         .tech-border::after {
-            content: '';
-            position: absolute;
-            bottom: -1px;
-            right: -1px;
-            width: 30px;
-            height: 30px;
-            border-bottom: 2px solid var(--accent-purple);
-            border-right: 2px solid var(--accent-purple);
-            border-radius: 0 0 0.5rem 0;
-            opacity: 0.7;
-            pointer-events: none;
-            transition: all 0.3s ease;
+            content: ''; position: absolute; bottom: -1px; right: -1px; width: 30px; height: 30px;
+            border-bottom: 2px solid var(--accent-purple); border-right: 2px solid var(--accent-purple);
+            border-radius: 0 0 0.5rem 0; opacity: 0.7; pointer-events: none; transition: all 0.3s ease;
         }
-        .tech-border:hover::before {
-            width: 60px;
-            height: 60px;
-            opacity: 1;
-        }
-        .tech-border:hover::after {
-            width: 60px;
-            height: 60px;
-            opacity: 1;
-        }
+        .tech-border:hover::before { width: 60px; height: 60px; opacity: 1; }
+        .tech-border:hover::after { width: 60px; height: 60px; opacity: 1; }
 
         .typing-cursor {
-            display: inline-block;
-            width: 2px;
-            height: 1.2em;
-            background: var(--accent-cyan);
-            animation: blink 1s step-end infinite;
-            vertical-align: text-bottom;
-            margin-left: 2px;
+            display: inline-block; width: 2px; height: 1.2em; background: var(--accent-cyan);
+            animation: blink 1s step-end infinite; vertical-align: text-bottom; margin-left: 2px;
         }
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0; }
-        }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
 
         #particleCanvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-            pointer-events: none;
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            z-index: 0; pointer-events: none;
         }
 
-        .main-content {
-            position: relative;
-            z-index: 10;
-        }
+        .main-content { position: relative; z-index: 10; }
 
         .navbar {
             transition: all 0.4s ease;
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
+            backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
             border-bottom: 1px solid transparent;
         }
         .navbar.scrolled {
@@ -239,30 +168,18 @@
         }
 
         #danmakuContainer {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100vh;
-            z-index: 100;
-            pointer-events: none;
-            overflow: hidden;
+            position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
+            z-index: 100; pointer-events: none; overflow: hidden;
         }
         .danmaku-item {
-            position: absolute;
-            white-space: nowrap;
-            pointer-events: none;
-            animation: danmakuMove linear forwards;
-            font-size: 1.1rem;
-            font-weight: 600;
+            position: absolute; white-space: nowrap; pointer-events: none;
+            animation: danmakuMove linear forwards; font-size: 1.1rem; font-weight: 600;
             text-shadow: 0 0 10px rgba(0, 0, 0, 0.5), 0 0 20px rgba(168, 85, 247, 0.4);
-            letter-spacing: 0.05em;
-            will-change: transform;
+            letter-spacing: 0.05em; will-change: transform;
         }
         @keyframes danmakuMove {
             0% { transform: translateX(100vw); opacity: 0; }
-            5% { opacity: 1; }
-            90% { opacity: 1; }
+            5% { opacity: 1; } 90% { opacity: 1; }
             100% { transform: translateX(-120%); opacity: 0; }
         }
 
@@ -276,29 +193,18 @@
         }
 
         .skill-tag {
-            display: inline-flex;
-            align-items: center;
-            padding: 0.35rem 0.9rem;
-            border-radius: 9999px;
-            font-size: 0.8rem;
-            font-weight: 500;
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            color: var(--text-secondary);
-            transition: all 0.25s ease;
-            cursor: default;
-            user-select: none;
+            display: inline-flex; align-items: center; padding: 0.35rem 0.9rem;
+            border-radius: 9999px; font-size: 0.8rem; font-weight: 500;
+            background: var(--bg-card); border: 1px solid var(--border-color);
+            color: var(--text-secondary); transition: all 0.25s ease;
+            cursor: default; user-select: none;
         }
         .skill-tag:hover {
-            border-color: var(--accent-purple);
-            color: var(--text-primary);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 16px rgba(168, 85, 247, 0.25);
+            border-color: var(--accent-purple); color: var(--text-primary);
+            transform: translateY(-2px); box-shadow: 0 4px 16px rgba(168, 85, 247, 0.25);
         }
 
-        .cert-card {
-            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-        }
+        .cert-card { transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1); }
         .cert-card:hover {
             transform: translateY(-6px) scale(1.02);
             box-shadow: var(--shadow-card-hover), 0 0 30px rgba(0, 229, 255, 0.1);
@@ -306,89 +212,29 @@
         }
 
         .danmaku-input {
-            background: var(--bg-card);
-            backdrop-filter: blur(var(--glass-blur));
+            background: var(--bg-card); backdrop-filter: blur(var(--glass-blur));
             -webkit-backdrop-filter: blur(var(--glass-blur));
-            border: 1px solid var(--border-color);
-            color: var(--text-primary);
-            transition: all 0.3s ease;
-            outline: none;
+            border: 1px solid var(--border-color); color: var(--text-primary);
+            transition: all 0.3s ease; outline: none;
         }
-        .danmaku-input:focus {
-            border-color: var(--accent-purple);
-            box-shadow: 0 0 20px rgba(168, 85, 247, 0.25);
-        }
-        .danmaku-input::placeholder {
-            color: var(--text-muted);
-        }
+        .danmaku-input:focus { border-color: var(--accent-purple); box-shadow: 0 0 20px rgba(168, 85, 247, 0.25); }
+        .danmaku-input::placeholder { color: var(--text-muted); }
 
         .btn-primary {
-            background: var(--gradient-text);
-            color: #fff;
-            border: none;
-            padding: 0.6rem 1.5rem;
-            border-radius: 0.5rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
+            background: var(--gradient-text); color: #fff; border: none;
+            padding: 0.6rem 1.5rem; border-radius: 0.5rem; font-weight: 600;
+            cursor: pointer; transition: all 0.3s ease;
             box-shadow: 0 4px 16px rgba(168, 85, 247, 0.3);
         }
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 24px rgba(168, 85, 247, 0.5);
-        }
-        .btn-primary:active {
-            transform: translateY(-1px);
-        }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(168, 85, 247, 0.5); }
+        .btn-primary:active { transform: translateY(-1px); }
 
-        /* 头像样式 */
-        .avatar-wrapper {
-            position: relative;
-            display: inline-block;
-        }
-        .avatar-img {
-            width: 8rem;
-            height: 8rem;
-            border-radius: 9999px;
-            object-fit: cover;
-            border: 2px solid var(--accent-cyan);
-            box-shadow: 0 0 30px rgba(0, 229, 255, 0.4), 0 0 60px rgba(168, 85, 247, 0.25);
-            transition: transform 0.4s ease, box-shadow 0.4s ease;
-            background: var(--bg-card);
-        }
-        .avatar-img:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 40px rgba(0, 229, 255, 0.6), 0 0 80px rgba(168, 85, 247, 0.4);
-        }
-        .avatar-ring {
-            position: absolute;
-            inset: -8px;
-            border-radius: 9999px;
-            border: 1px dashed rgba(0, 229, 255, 0.35);
-            animation: rotateRing 20s linear infinite;
-            pointer-events: none;
-        }
-        @keyframes rotateRing {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-        @media (max-width: 640px) {
-            .avatar-img {
-                width: 6.5rem;
-                height: 6.5rem;
-            }
-        }
-
-        /* 证书图片展示卡片 */
+        /* 证书 / 实践图片展示卡片 */
         .cert-image-card {
             transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-            cursor: pointer;
-            overflow: hidden;
-            border-radius: 0.75rem;
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            padding: 0.5rem;
-            position: relative;
+            cursor: pointer; overflow: hidden; border-radius: 0.75rem;
+            background: var(--bg-card); border: 1px solid var(--border-color);
+            padding: 0.5rem; position: relative;
         }
         .cert-image-card:hover {
             transform: translateY(-5px);
@@ -396,136 +242,87 @@
             border-color: rgba(0, 229, 255, 0.4);
         }
         .cert-image-card img {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-            border-radius: 0.5rem;
-            transition: transform 0.4s ease;
+            width: 100%; height: 180px; object-fit: cover;
+            border-radius: 0.5rem; transition: transform 0.4s ease;
+            background: rgba(0, 0, 0, 0.2);
         }
-        .cert-image-card:hover img {
-            transform: scale(1.03);
-        }
+        .cert-image-card:hover img { transform: scale(1.03); }
         .cert-image-card .cert-label {
-            position: absolute;
-            bottom: 0.75rem;
-            left: 0.75rem;
-            right: 0.75rem;
-            background: rgba(0,0,0,0.65);
-            backdrop-filter: blur(4px);
-            -webkit-backdrop-filter: blur(4px);
-            color: #fff;
-            font-size: 0.7rem;
-            padding: 0.25rem 0.6rem;
-            border-radius: 0.35rem;
-            text-align: center;
-            letter-spacing: 0.03em;
+            position: absolute; bottom: 0.75rem; left: 0.75rem; right: 0.75rem;
+            background: rgba(0,0,0,0.65); backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px); color: #fff;
+            font-size: 0.7rem; padding: 0.25rem 0.6rem;
+            border-radius: 0.35rem; text-align: center; letter-spacing: 0.03em;
         }
         html:not(.dark) .cert-image-card .cert-label {
-            background: rgba(255,255,255,0.85);
-            color: #1a1a2e;
+            background: rgba(255,255,255,0.85); color: #1a1a2e;
+        }
+
+        /* 头像样式 */
+        .avatar-frame {
+            position: relative;
+            border-radius: 1.5rem;
+            padding: 3px;
+            background: var(--gradient-text);
+            box-shadow: 0 0 40px rgba(168, 85, 247, 0.35), 0 0 80px rgba(0, 229, 255, 0.15);
+        }
+        .avatar-frame img {
+            width: 100%; height: 100%; object-fit: cover;
+            border-radius: calc(1.5rem - 3px);
+            display: block;
         }
 
         /* 灯箱遮罩 */
         .lightbox-overlay {
-            position: fixed;
-            inset: 0;
-            z-index: 200;
-            background: rgba(0, 0, 0, 0.85);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: zoom-out;
-            animation: fadeIn 0.25s ease;
+            position: fixed; inset: 0; z-index: 200;
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+            display: flex; align-items: center; justify-content: center;
+            cursor: zoom-out; animation: fadeIn 0.25s ease;
         }
         .lightbox-overlay img {
-            max-width: 92vw;
-            max-height: 90vh;
-            object-fit: contain;
-            border-radius: 0.75rem;
-            box-shadow: 0 0 60px rgba(0, 229, 255, 0.3);
+            max-width: 92vw; max-height: 90vh; object-fit: contain;
+            border-radius: 0.75rem; box-shadow: 0 0 60px rgba(0, 229, 255, 0.3);
             animation: zoomIn 0.3s ease;
         }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        @keyframes zoomIn {
-            from { transform: scale(0.9); opacity: 0; }
-            to { transform: scale(1); opacity: 1; }
-        }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes zoomIn { from { transform: scale(0.9); opacity: 0; } to { transform: scale(1); opacity: 1; } }
 
-        /* 游戏展示 iframe 容器响应式 */
+        /* iframe 容器响应式 */
         .game-frame-wrapper {
-            position: relative;
-            width: 100%;
-            padding-top: 56.25%;
-            border-radius: 0.5rem;
-            overflow: hidden;
-            box-shadow: var(--shadow-card);
-            border: 1px solid var(--border-color);
+            position: relative; width: 100%; padding-top: 56.25%;
+            border-radius: 0.5rem; overflow: hidden;
+            box-shadow: var(--shadow-card); border: 1px solid var(--border-color);
         }
         .game-frame-wrapper iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;
         }
 
-        /* 特别鸣谢区域样式 */
-        .thanks-section {
-            position: relative;
-            overflow: hidden;
-        }
+        /* 特别鸣谢 */
+        .thanks-section { position: relative; overflow: hidden; }
         .thanks-section::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
+            content: ''; position: absolute; top: -50%; left: -50%;
+            width: 200%; height: 200%;
             background: radial-gradient(circle at center, rgba(168, 85, 247, 0.08) 0%, transparent 60%);
-            pointer-events: none;
-            animation: float 8s ease-in-out infinite;
+            pointer-events: none; animation: float 8s ease-in-out infinite;
         }
-        .thanks-text {
-            position: relative;
-            z-index: 1;
-        }
-        .heart-icon {
-            animation: heartbeat 1.5s ease-in-out infinite;
-            display: inline-block;
-        }
+        .thanks-text { position: relative; z-index: 1; }
+        .heart-icon { animation: heartbeat 1.5s ease-in-out infinite; display: inline-block; }
         @keyframes heartbeat {
-            0%, 100% { transform: scale(1); }
-            25% { transform: scale(1.15); }
-            50% { transform: scale(1); }
-            75% { transform: scale(1.1); }
+            0%, 100% { transform: scale(1); } 25% { transform: scale(1.15); }
+            50% { transform: scale(1); } 75% { transform: scale(1.1); }
         }
 
         /* ==================== 经历时间线样式 ==================== */
         .timeline-node-dot {
-            position: absolute;
-            left: 0;
-            top: 1.75rem;
-            width: 1.5rem;
-            height: 1.5rem;
-            border-radius: 9999px;
-            background: var(--bg-primary);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 2;
+            position: absolute; left: 0; top: 1.75rem;
+            width: 1.5rem; height: 1.5rem; border-radius: 9999px;
+            background: var(--bg-primary); display: flex;
+            align-items: center; justify-content: center; z-index: 2;
         }
         .timeline-node-dot::after {
-            content: '';
-            width: 0.5rem;
-            height: 0.5rem;
-            border-radius: 9999px;
-            animation: pulseNode 2s ease-in-out infinite;
+            content: ''; width: 0.5rem; height: 0.5rem;
+            border-radius: 9999px; animation: pulseNode 2s ease-in-out infinite;
         }
         @keyframes pulseNode {
             0%, 100% { opacity: 1; transform: scale(1); }
@@ -538,53 +335,40 @@
         .timeline-dot-pink { border: 2px solid var(--accent-pink); box-shadow: 0 0 16px rgba(236,72,153,0.5); }
         .timeline-dot-pink::after { background: var(--accent-pink); }
 
-        .exp-meta {
-            font-family: 'Fira Code', 'Consolas', monospace;
-            font-size: 0.75rem;
-            letter-spacing: 0.08em;
-        }
+        .exp-meta { font-family: 'Fira Code', 'Consolas', monospace; font-size: 0.75rem; letter-spacing: 0.08em; }
 
         .exp-tag {
             font-family: 'Fira Code', 'Consolas', monospace;
-            font-size: 0.7rem;
-            letter-spacing: 0.05em;
-            padding: 0.2rem 0.55rem;
-            border-radius: 0.25rem;
+            font-size: 0.7rem; letter-spacing: 0.05em;
+            padding: 0.2rem 0.55rem; border-radius: 0.25rem;
             background: rgba(0, 229, 255, 0.08);
             border: 1px solid rgba(0, 229, 255, 0.25);
-            color: var(--accent-cyan);
-            white-space: nowrap;
+            color: var(--accent-cyan); white-space: nowrap;
         }
-        .exp-tag-purple {
-            background: rgba(168, 85, 247, 0.08);
-            border-color: rgba(168, 85, 247, 0.25);
-            color: var(--accent-purple);
+        .exp-tag-purple { background: rgba(168, 85, 247, 0.08); border-color: rgba(168, 85, 247, 0.25); color: var(--accent-purple); }
+        .exp-tag-pink { background: rgba(236, 72, 153, 0.08); border-color: rgba(236, 72, 153, 0.25); color: var(--accent-pink); }
+
+        /* 实践印记分组标题 */
+        .practice-group-title {
+            display: flex; align-items: center; gap: 0.75rem;
+            font-family: 'Fira Code', 'Consolas', monospace;
+            font-size: 0.95rem; font-weight: 600;
+            margin-bottom: 1.25rem; letter-spacing: 0.04em;
         }
-        .exp-tag-pink {
-            background: rgba(236, 72, 153, 0.08);
-            border-color: rgba(236, 72, 153, 0.25);
-            color: var(--accent-pink);
+        .practice-group-title::before {
+            content: ''; width: 4px; height: 20px; border-radius: 2px;
         }
+        .practice-group-title.cyan::before { background: var(--accent-cyan); box-shadow: 0 0 12px var(--accent-cyan); }
+        .practice-group-title.purple::before { background: var(--accent-purple); box-shadow: 0 0 12px var(--accent-purple); }
 
         @media (max-width: 768px) {
-            .glass-card {
-                border-radius: 0.75rem;
-            }
-            .danmaku-item {
-                font-size: 0.9rem;
-            }
-            .cert-image-card img {
-                height: 140px;
-            }
-            .timeline-node-dot {
-                width: 1.25rem;
-                height: 1.25rem;
-                top: 1.5rem;
-            }
-            .timeline-node-dot::after {
-                width: 0.4rem;
-                height: 0.4rem;
-            }
+            .glass-card { border-radius: 0.75rem; }
+            .danmaku-item { font-size: 0.9rem; }
+            .cert-image-card img { height: 140px; }
+            .timeline-node-dot { width: 1.25rem; height: 1.25rem; top: 1.5rem; }
+            .timeline-node-dot::after { width: 0.4rem; height: 0.4rem; }
+            .avatar-frame { border-radius: 1.25rem; }
+            .avatar-frame img { border-radius: calc(1.25rem - 3px); }
         }
     </style>
 </head>
@@ -604,11 +388,12 @@
                 <div class="hidden md:flex items-center gap-5 text-sm font-medium">
                     <a href="#about" class="hover:text-[var(--accent-cyan)] transition-colors duration-300">关于我</a>
                     <a href="#experience" class="hover:text-[var(--accent-cyan)] transition-colors duration-300">经历</a>
-                    <a href="#skills" class="hover:text-[var(--accent-cyan)] transition-colors duration-300">专业技能</a>
+                    <a href="#practice" class="hover:text-[var(--accent-cyan)] transition-colors duration-300">实践</a>
+                    <a href="#skills" class="hover:text-[var(--accent-cyan)] transition-colors duration-300">技能</a>
                     <a href="#game" class="hover:text-[var(--accent-cyan)] transition-colors duration-300">小游戏</a>
                     <a href="#qixi" class="hover:text-[var(--accent-cyan)] transition-colors duration-300">七夕粒子</a>
-                    <a href="#certs" class="hover:text-[var(--accent-cyan)] transition-colors duration-300">获奖证书</a>
-                    <a href="#guestbook" class="hover:text-[var(--accent-cyan)] transition-colors duration-300">留言互动</a>
+                    <a href="#certs" class="hover:text-[var(--accent-cyan)] transition-colors duration-300">证书</a>
+                    <a href="#guestbook" class="hover:text-[var(--accent-cyan)] transition-colors duration-300">留言</a>
                 </div>
                 <button id="themeToggle" class="flex items-center gap-2 px-3 py-2 rounded-full border transition-all duration-300 hover:scale-110 active:scale-95 cursor-pointer"
                 style="border-color: var(--border-color); background: var(--bg-card);" aria-label="切换深色/浅色模式">
@@ -625,15 +410,6 @@
         <div class="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full blur-3xl opacity-15 pointer-events-none" style="background: radial-gradient(circle, #00e5ff, transparent 70%);"></div>
 
         <div class="relative z-10 text-center max-w-3xl mx-auto">
-
-            <!-- ==================== 头像（新增） ==================== -->
-            <div class="flex justify-center mb-8" data-aos="zoom-in" data-aos-duration="800">
-                <div class="avatar-wrapper">
-                    <span class="avatar-ring"></span>
-                    <img src="头像.png" alt="马楚轩" class="avatar-img" loading="eager">
-                </div>
-            </div>
-
             <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-8 glass-card text-xs font-mono" data-aos="fade-down" data-aos-duration="800">
                 <span class="w-2 h-2 rounded-full bg-green-500"></span>
                 <span class="w-2 h-2 rounded-full bg-yellow-500"></span>
@@ -662,14 +438,14 @@
                 <a href="#experience" class="px-6 py-2.5 rounded-lg border transition-all duration-300 hover:translate-y-[-3px] cursor-pointer" style="border-color: var(--border-color); background: var(--bg-card); backdrop-filter: blur(var(--glass-blur));">
                     <i class="fa-solid fa-code-branch mr-2 text-[var(--accent-purple)]"></i><span>成长轨迹</span>
                 </a>
+                <a href="#practice" class="px-6 py-2.5 rounded-lg border transition-all duration-300 hover:translate-y-[-3px] cursor-pointer" style="border-color: var(--border-color); background: var(--bg-card); backdrop-filter: blur(var(--glass-blur));">
+                    <i class="fa-solid fa-image mr-2 text-[var(--accent-cyan)]"></i><span>实践印记</span>
+                </a>
                 <a href="#game" class="px-6 py-2.5 rounded-lg border transition-all duration-300 hover:translate-y-[-3px] cursor-pointer" style="border-color: var(--border-color); background: var(--bg-card); backdrop-filter: blur(var(--glass-blur));">
                     <i class="fa-solid fa-gamepad mr-2 text-[var(--accent-cyan)]"></i><span>玩小游戏</span>
                 </a>
                 <a href="#certs" class="px-6 py-2.5 rounded-lg border transition-all duration-300 hover:translate-y-[-3px] cursor-pointer" style="border-color: var(--border-color); background: var(--bg-card); backdrop-filter: blur(var(--glass-blur));">
                     <i class="fa-solid fa-certificate mr-2 text-[var(--accent-purple)]"></i><span>查看证书</span>
-                </a>
-                <a href="mailto:2364512038@qq.com" class="px-6 py-2.5 rounded-lg border transition-all duration-300 hover:translate-y-[-3px] cursor-pointer" style="border-color: var(--border-color); background: var(--bg-card); backdrop-filter: blur(var(--glass-blur));">
-                    <i class="fa-solid fa-envelope mr-2 text-[var(--accent-pink)]"></i><span>联系我</span>
                 </a>
             </div>
             <div class="flex flex-wrap items-center justify-center gap-6 mt-10 text-sm text-[var(--text-muted)]" data-aos="fade-up" data-aos-duration="800" data-aos-delay="600">
@@ -687,6 +463,23 @@
             <h2 class="text-3xl sm:text-4xl font-bold mb-12 text-center font-mono" data-aos="fade-up" data-aos-duration="700">
                 <i class="fa-solid fa-user-astronaut mr-3 text-[var(--accent-purple)]"></i><span class="gradient-text">关于我</span>
             </h2>
+
+            <!-- ==================== 头像 ==================== -->
+            <div class="flex justify-center mb-12" data-aos="zoom-in" data-aos-duration="900">
+                <div class="relative">
+                    <div class="avatar-frame w-32 h-32 sm:w-40 sm:h-40">
+                        <img src="xin1/头像.png" alt="马楚轩的头像" loading="lazy">
+                    </div>
+                    <div class="absolute -bottom-2 -right-2 px-3 py-1 rounded-full text-xs font-mono font-bold shadow-lg"
+                         style="background: var(--gradient-text); color: #fff;">
+                        MCX.dev
+                    </div>
+                    <!-- 装饰点 -->
+                    <div class="absolute -top-1 -left-1 w-3 h-3 rounded-full bg-[var(--accent-cyan)] shadow-[0_0_12px_var(--accent-cyan)] animate-pulse"></div>
+                    <div class="absolute -top-1 -right-1 w-3 h-3 rounded-full bg-[var(--accent-pink)] shadow-[0_0_12px_var(--accent-pink)] animate-pulse"></div>
+                </div>
+            </div>
+
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div class="glass-card tech-border p-8 md:p-10" data-aos="fade-right" data-aos-duration="800">
                     <div class="flex items-center gap-3 mb-6">
@@ -813,6 +606,98 @@
                     虚怀若谷，格物致知
                     <span class="text-[var(--accent-pink)]">*/</span>
                 </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== 实践印记（新增：AI 编程 + 华为云实训） ==================== -->
+    <section id="practice" class="py-20 px-4 sm:px-8">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl sm:text-4xl font-bold mb-4 text-center font-mono" data-aos="fade-up" data-aos-duration="700">
+                <i class="fa-solid fa-image mr-3 text-[var(--accent-cyan)]"></i><span class="gradient-text">实践印记</span>
+            </h2>
+            <p class="text-center text-[var(--text-muted)] mb-12 text-xs sm:text-sm font-mono" data-aos="fade-up" data-aos-duration="700" data-aos-delay="100">
+                <span class="text-[var(--accent-cyan)]">$</span> ls -la ./practice --proof
+            </p>
+
+            <!-- 分组一：AI 编程探索 -->
+            <div class="mb-14" data-aos="fade-up" data-aos-duration="800">
+                <h3 class="practice-group-title cyan text-[var(--accent-cyan)]">
+                    <span># AI 编程探索</span>
+                    <span class="text-[var(--text-muted)] text-xs font-normal">// vibecoding · prompt engineering</span>
+                </h3>
+                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+                    <div class="cert-image-card" data-aos="fade-up" data-aos-delay="0">
+                        <img src="xin1/AI编程.png" alt="AI 编程实践 01" loading="lazy">
+                        <div class="cert-label">AI 编程 · 01</div>
+                    </div>
+                    <div class="cert-image-card" data-aos="fade-up" data-aos-delay="50">
+                        <img src="xin1/AI编程2.png" alt="AI 编程实践 02" loading="lazy">
+                        <div class="cert-label">AI 编程 · 02</div>
+                    </div>
+                    <div class="cert-image-card" data-aos="fade-up" data-aos-delay="100">
+                        <img src="xin1/AI编程3.png" alt="AI 编程实践 03" loading="lazy">
+                        <div class="cert-label">AI 编程 · 03</div>
+                    </div>
+                    <div class="cert-image-card" data-aos="fade-up" data-aos-delay="150">
+                        <img src="xin1/AI编程4.png" alt="AI 编程实践 04" loading="lazy">
+                        <div class="cert-label">AI 编程 · 04</div>
+                    </div>
+                    <div class="cert-image-card" data-aos="fade-up" data-aos-delay="200">
+                        <img src="xin1/AI编程5.png" alt="AI 编程实践 05" loading="lazy">
+                        <div class="cert-label">AI 编程 · 05</div>
+                    </div>
+                    <div class="cert-image-card" data-aos="fade-up" data-aos-delay="250">
+                        <img src="xin1/AI编程6.png" alt="AI 编程实践 06" loading="lazy">
+                        <div class="cert-label">AI 编程 · 06</div>
+                    </div>
+                    <div class="cert-image-card" data-aos="fade-up" data-aos-delay="300">
+                        <img src="xin1/AI编程7.png" alt="AI 编程实践 07" loading="lazy">
+                        <div class="cert-label">AI 编程 · 07</div>
+                    </div>
+                    <div class="cert-image-card" data-aos="fade-up" data-aos-delay="350">
+                        <img src="xin1/编程.png" alt="编程实践" loading="lazy">
+                        <div class="cert-label">编程 · 实践</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 分组二：华为云实训 -->
+            <div data-aos="fade-up" data-aos-duration="800">
+                <h3 class="practice-group-title purple text-[var(--accent-purple)]">
+                    <span># 华为云实训</span>
+                    <span class="text-[var(--text-muted)] text-xs font-normal">// huawei cloud · hands-on</span>
+                </h3>
+                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+                    <div class="cert-image-card" data-aos="fade-up" data-aos-delay="0">
+                        <img src="xin1/华为1.png" alt="华为云实训 01" loading="lazy">
+                        <div class="cert-label">华为云 · 01</div>
+                    </div>
+                    <div class="cert-image-card" data-aos="fade-up" data-aos-delay="50">
+                        <img src="xin1/华为2.png" alt="华为云实训 02" loading="lazy">
+                        <div class="cert-label">华为云 · 02</div>
+                    </div>
+                    <div class="cert-image-card" data-aos="fade-up" data-aos-delay="100">
+                        <img src="xin1/华为3.png" alt="华为云实训 03" loading="lazy">
+                        <div class="cert-label">华为云 · 03</div>
+                    </div>
+                    <div class="cert-image-card" data-aos="fade-up" data-aos-delay="150">
+                        <img src="xin1/华为4.png" alt="华为云实训 04" loading="lazy">
+                        <div class="cert-label">华为云 · 04</div>
+                    </div>
+                    <div class="cert-image-card" data-aos="fade-up" data-aos-delay="200">
+                        <img src="xin1/华为5.png" alt="华为云实训 05" loading="lazy">
+                        <div class="cert-label">华为云 · 05</div>
+                    </div>
+                    <div class="cert-image-card" data-aos="fade-up" data-aos-delay="250">
+                        <img src="xin1/华为6.png" alt="华为云实训 06" loading="lazy">
+                        <div class="cert-label">华为云 · 06</div>
+                    </div>
+                    <div class="cert-image-card" data-aos="fade-up" data-aos-delay="300">
+                        <img src="xin1/华为7.png" alt="华为云实训 07" loading="lazy">
+                        <div class="cert-label">华为云 · 07</div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -1048,13 +933,7 @@
 <script>
     /* ==================== AOS初始化 ==================== */
     document.addEventListener('DOMContentLoaded', function() {
-        AOS.init({
-            duration: 700,
-            easing: 'ease-out-cubic',
-            once: false,
-            offset: 80,
-        });
-        // 动态生成证书图片画廊
+        AOS.init({ duration: 700, easing: 'ease-out-cubic', once: false, offset: 80 });
         initCertGallery();
     });
 
@@ -1161,12 +1040,9 @@
 
         class Particle {
             constructor(x, y, char, isFromKeyboard = false) {
-                this.x = x;
-                this.y = y;
-                this.char = char;
+                this.x = x; this.y = y; this.char = char;
                 this.isFromKeyboard = isFromKeyboard;
-                this.alpha = 1;
-                this.life = 0;
+                this.alpha = 1; this.life = 0;
                 this.maxLife = config.particleLifespan + Math.random() * 60;
 
                 if (isFromKeyboard) {
@@ -1184,34 +1060,25 @@
                     const mouseSizeScale = isMobile ? 0.7 : 1.0;
                     this.size = (10 + Math.random() * 8) * mouseSizeScale;
                     const dark = document.documentElement.classList.contains('dark');
-                    const colors = dark ? 
+                    const colors = dark ?
                         ['#7dd3fc', '#a78bfa', '#34d399', '#f472b6', '#fbbf24', '#60a5fa', '#e879f9'] :
                         ['#4f46e5', '#7c3aed', '#059669', '#db2777', '#0284c7', '#9333ea'];
                     this.color = colors[Math.floor(Math.random() * colors.length)];
-                    this.life = 1.0;
-                    this.decay = 0.008;
+                    this.life = 1.0; this.decay = 0.008;
                 }
             }
-
             update() {
                 if (this.isFromKeyboard) {
-                    this.x += this.vx;
-                    this.y += this.vy;
-                    this.vy += this.gravity;
-                    this.vx += (Math.random() - 0.5) * 0.02;
-                    this.life++;
+                    this.x += this.vx; this.y += this.vy; this.vy += this.gravity;
+                    this.vx += (Math.random() - 0.5) * 0.02; this.life++;
                     if (this.life > this.maxLife * 0.7) {
                         this.alpha = Math.max(0, 1 - (this.life - this.maxLife * 0.7) / (this.maxLife * 0.3));
                     }
                 } else {
-                    this.x += this.vx;
-                    this.y += this.vy;
-                    this.vy += this.gravity;
-                    this.life -= this.decay;
-                    this.alpha = Math.max(0, this.life);
+                    this.x += this.vx; this.y += this.vy; this.vy += this.gravity;
+                    this.life -= this.decay; this.alpha = Math.max(0, this.life);
                 }
             }
-
             isDead() {
                 if (this.isFromKeyboard) {
                     return this.life >= this.maxLife || this.alpha <= 0 || this.y > height + 20 || this.x < -50 || this.x > width + 50;
@@ -1219,7 +1086,6 @@
                     return this.life <= 0 || this.y > height + 20 || this.x < -50 || this.x > width + 50;
                 }
             }
-
             draw(ctx) {
                 ctx.save();
                 ctx.globalAlpha = this.alpha;
@@ -1241,7 +1107,6 @@
             const y = Math.random() * height * 0.6;
             particles.push(new Particle(x, y, randomChar, false));
         }
-
         function emitMouseParticles(x, y) {
             const count = isMobile ? 1 : 2;
             for (let i = 0; i < count; i++) {
@@ -1251,7 +1116,6 @@
                 particles.push(new Particle(x + offsetX, y + offsetY, char, false));
             }
         }
-
         function emitKeyParticle(char, x, y) {
             for (let i = 0; i < config.keyEmitRate; i++) {
                 const offsetX = (Math.random() - 0.5) * 40;
@@ -1293,9 +1157,7 @@
         }
 
         document.addEventListener('mousemove', function(e) {
-            mouseX = e.clientX;
-            mouseY = e.clientY;
-            mouseActive = true;
+            mouseX = e.clientX; mouseY = e.clientY; mouseActive = true;
             emitMouseParticles(mouseX, mouseY);
         });
         document.addEventListener('touchmove', function(e) {
@@ -1376,28 +1238,13 @@
         setTimeout(() => sendDanmaku('💡 试试在页面空白处打字！'), 3000);
     })();
 
-    /* ==================== 证书图片画廊 + 灯箱 ==================== */
+    /* ==================== 证书图片画廊 + 灯箱（图片改为 xin1/1~14.png） ==================== */
     function initCertGallery() {
         const container = document.getElementById('certGalleryContainer');
         if (!container) return;
-
-        // 证书图片列表（按顺序展示，与 index.html 同级目录）
         const imageFiles = [
-            'AI编程.png',
-            'AI编程2.png',
-            'AI编程3.png',
-            'AI编程4.png',
-            'AI编程5.png',
-            'AI编程6.png',
-            'AI编程7.png',
-            '编程.png',
-            '华为1.png',
-            '华为2.png',
-            '华为3.png',
-            '华为4.png',
-            '华为5.png',
-            '华为6.png',
-            '华为7.png'
+            '1.png', '2.png', '3.png', '4.png', '5.png', '6.png', '7.png',
+            '8.png', '9.png', '10.png', '11.png', '12.png', '13.png', '14.png'
         ];
 
         container.innerHTML = '';
@@ -1409,61 +1256,62 @@
             card.setAttribute('data-aos-delay', `${(index % 4) * 50}`);
 
             const img = document.createElement('img');
-            img.src = file;
-            // 使用文件名作为 alt 与标签文本（去掉扩展名）
-            const displayName = file.replace(/\.(png|jpg|jpeg|webp)$/i, '');
-            img.alt = `证书 - ${displayName}`;
+            img.src = 'xin1/' + file;
+            img.alt = `证书扫描件 ${String(index + 1).padStart(2, '0')}`;
             img.loading = 'lazy';
-            img.setAttribute('data-full', file);
+            img.setAttribute('data-full', 'xin1/' + file);
 
             const label = document.createElement('div');
             label.className = 'cert-label';
-            label.textContent = displayName;
+            label.textContent = `证书 ${String(index + 1).padStart(2, '0')}`;
 
             card.appendChild(img);
             card.appendChild(label);
 
             card.addEventListener('click', function() {
-                openLightbox(file, img.alt);
+                openLightbox('xin1/' + file, img.alt);
             });
 
             container.appendChild(card);
         });
 
-        if (window.AOS) {
-            setTimeout(() => AOS.refreshHard(), 100);
-        }
-
-        function openLightbox(src, alt) {
-            const existing = document.querySelector('.lightbox-overlay');
-            if (existing) existing.remove();
-
-            const overlay = document.createElement('div');
-            overlay.className = 'lightbox-overlay';
-            overlay.setAttribute('role', 'dialog');
-            overlay.setAttribute('aria-label', '证书大图预览');
-
-            const img = document.createElement('img');
-            img.src = src;
-            img.alt = alt;
-
-            overlay.appendChild(img);
-            document.body.appendChild(overlay);
-
-            overlay.addEventListener('click', function() {
-                overlay.remove();
-            });
-
-            document.addEventListener('keydown', function escHandler(e) {
-                if (e.key === 'Escape') {
-                    overlay.remove();
-                    document.removeEventListener('keydown', escHandler);
-                }
-            });
-        }
-
-        window.openLightbox = openLightbox;
+        if (window.AOS) setTimeout(() => AOS.refreshHard(), 100);
     }
+
+    /* ==================== 灯箱（全局事件委托，覆盖证书 & 实践图片） ==================== */
+    document.addEventListener('click', function(e) {
+        const card = e.target.closest('.cert-image-card');
+        if (!card) return;
+        const img = card.querySelector('img');
+        if (!img) return;
+        openLightbox(img.src, img.alt || '图片预览');
+    });
+
+    function openLightbox(src, alt) {
+        const existing = document.querySelector('.lightbox-overlay');
+        if (existing) existing.remove();
+
+        const overlay = document.createElement('div');
+        overlay.className = 'lightbox-overlay';
+        overlay.setAttribute('role', 'dialog');
+        overlay.setAttribute('aria-label', '大图预览');
+
+        const img = document.createElement('img');
+        img.src = src;
+        img.alt = alt;
+
+        overlay.appendChild(img);
+        document.body.appendChild(overlay);
+
+        overlay.addEventListener('click', function() { overlay.remove(); });
+        document.addEventListener('keydown', function escHandler(e) {
+            if (e.key === 'Escape') {
+                overlay.remove();
+                document.removeEventListener('keydown', escHandler);
+            }
+        });
+    }
+    window.openLightbox = openLightbox;
 
     /* ==================== 导航栏滚动效果 ==================== */
     (function() {
