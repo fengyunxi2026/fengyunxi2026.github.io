@@ -298,6 +298,43 @@
             position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;
         }
 
+        /* 可点击预览窗（用于未来 AI PPT） */
+        .preview-clickable {
+            position: relative;
+            display: block;
+            cursor: pointer;
+        }
+        .preview-clickable .preview-overlay {
+            position: absolute;
+            inset: 0;
+            z-index: 5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 0, 0, 0);
+            transition: background 0.35s ease;
+            border-radius: 0.5rem;
+        }
+        .preview-clickable:hover .preview-overlay {
+            background: rgba(10, 10, 30, 0.55);
+        }
+        .preview-clickable .preview-overlay .preview-btn {
+            opacity: 0;
+            transform: scale(0.9);
+            transition: all 0.35s ease;
+            padding: 0.7rem 1.4rem;
+            border-radius: 0.5rem;
+            background: var(--gradient-text);
+            color: #fff;
+            font-weight: 600;
+            font-size: 0.9rem;
+            box-shadow: 0 8px 24px rgba(168, 85, 247, 0.5);
+        }
+        .preview-clickable:hover .preview-overlay .preview-btn {
+            opacity: 1;
+            transform: scale(1);
+        }
+
         /* 特别鸣谢 */
         .thanks-section { position: relative; overflow: hidden; }
         .thanks-section::before {
@@ -378,6 +415,7 @@
             .timeline-node-dot::after { width: 0.4rem; height: 0.4rem; }
             .avatar-frame { border-radius: 1.25rem; }
             .avatar-frame img { border-radius: calc(1.25rem - 3px); }
+            .preview-clickable .preview-overlay .preview-btn { font-size: 0.8rem; padding: 0.55rem 1.1rem; }
         }
     </style>
 </head>
@@ -398,6 +436,7 @@
                     <a href="#about" class="hover:text-[var(--accent-cyan)] transition-colors duration-300">关于我</a>
                     <a href="#experience" class="hover:text-[var(--accent-cyan)] transition-colors duration-300">经历</a>
                     <a href="#skills" class="hover:text-[var(--accent-cyan)] transition-colors duration-300">技能</a>
+                    <a href="#future-ai" class="hover:text-[var(--accent-cyan)] transition-colors duration-300">未来AI</a>
                     <a href="#game" class="hover:text-[var(--accent-cyan)] transition-colors duration-300">小游戏</a>
                     <a href="#qixi" class="hover:text-[var(--accent-cyan)] transition-colors duration-300">七夕粒子</a>
                     <a href="#certs" class="hover:text-[var(--accent-cyan)] transition-colors duration-300">证书档案</a>
@@ -445,6 +484,9 @@
                 <a href="#skills" class="btn-primary"><i class="fa-solid fa-terminal mr-2"></i>查看技能</a>
                 <a href="#experience" class="px-6 py-2.5 rounded-lg border transition-all duration-300 hover:translate-y-[-3px] cursor-pointer" style="border-color: var(--border-color); background: var(--bg-card); backdrop-filter: blur(var(--glass-blur));">
                     <i class="fa-solid fa-code-branch mr-2 text-[var(--accent-purple)]"></i><span>成长轨迹</span>
+                </a>
+                <a href="#future-ai" class="px-6 py-2.5 rounded-lg border transition-all duration-300 hover:translate-y-[-3px] cursor-pointer" style="border-color: var(--border-color); background: var(--bg-card); backdrop-filter: blur(var(--glass-blur));">
+                    <i class="fa-solid fa-rocket mr-2 text-[var(--accent-purple)]"></i><span>未来AI</span>
                 </a>
                 <a href="#game" class="px-6 py-2.5 rounded-lg border transition-all duration-300 hover:translate-y-[-3px] cursor-pointer" style="border-color: var(--border-color); background: var(--bg-card); backdrop-filter: blur(var(--glass-blur));">
                     <i class="fa-solid fa-gamepad mr-2 text-[var(--accent-cyan)]"></i><span>玩小游戏</span>
@@ -650,6 +692,48 @@
                     <span class="skill-tag"><i class="fa-solid fa-code mr-1"></i>Python</span>
                     <span class="skill-tag"><i class="fa-solid fa-terminal mr-1"></i>Linux</span>
                     <span class="skill-tag"><i class="fa-solid fa-git mr-1"></i>Git</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== 未来 AI 愿景 · 网页 PPT（新增） ==================== -->
+    <section id="future-ai" class="py-20 px-4 sm:px-8">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl sm:text-4xl font-bold mb-6 text-center font-mono" data-aos="fade-up" data-aos-duration="700">
+                <i class="fa-solid fa-rocket mr-3 text-[var(--accent-purple)]"></i><span class="gradient-text">未来 AI 愿景</span>
+            </h2>
+            <p class="text-center text-[var(--text-muted)] mb-10 text-sm" data-aos="fade-up" data-aos-duration="700" data-aos-delay="100">
+                <i class="fa-solid fa-wand-magic-sparkles mr-1"></i> HTML 网页 PPT · 记录我对 AI 的观察与思考，点击窗口即可全屏浏览
+            </p>
+            <div class="glass-card p-4 sm:p-6 max-w-5xl mx-auto" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+                <!-- 可点击预览窗：整块区域点击即跳转 -->
+                <a href="https://fengyunxi2026.github.io/future-ai-vision/" 
+                   target="_blank" 
+                   rel="noopener noreferrer" 
+                   class="preview-clickable block"
+                   aria-label="打开未来 AI 愿景网页 PPT">
+                    <div class="game-frame-wrapper">
+                        <iframe src="https://fengyunxi2026.github.io/future-ai-vision/" 
+                                title="未来 AI 愿景 · 网页 PPT" 
+                                loading="lazy"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen></iframe>
+                    </div>
+                    <!-- 悬停遮罩 + 跳转按钮 -->
+                    <div class="preview-overlay">
+                        <span class="preview-btn">
+                            <i class="fa-solid fa-up-right-from-square mr-2"></i>点击进入全屏浏览
+                        </span>
+                    </div>
+                </a>
+                <div class="mt-5 flex flex-col sm:flex-row items-center justify-center gap-4 text-center">
+                    <a href="https://fengyunxi2026.github.io/future-ai-vision/" target="_blank" rel="noopener noreferrer" class="btn-primary">
+                        <i class="fa-solid fa-up-right-from-square mr-2"></i>在新窗口打开
+                    </a>
+                    <span class="text-xs text-[var(--text-muted)] flex items-center gap-2">
+                        <i class="fa-solid fa-circle-info"></i> 点击预览窗任意位置即可跳转
+                    </span>
                 </div>
             </div>
         </div>
