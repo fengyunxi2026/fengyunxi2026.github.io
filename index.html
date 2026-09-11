@@ -341,6 +341,44 @@
             transform: translateY(-1px);
         }
 
+        /* 头像样式 */
+        .avatar-wrapper {
+            position: relative;
+            display: inline-block;
+        }
+        .avatar-img {
+            width: 8rem;
+            height: 8rem;
+            border-radius: 9999px;
+            object-fit: cover;
+            border: 2px solid var(--accent-cyan);
+            box-shadow: 0 0 30px rgba(0, 229, 255, 0.4), 0 0 60px rgba(168, 85, 247, 0.25);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            background: var(--bg-card);
+        }
+        .avatar-img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 40px rgba(0, 229, 255, 0.6), 0 0 80px rgba(168, 85, 247, 0.4);
+        }
+        .avatar-ring {
+            position: absolute;
+            inset: -8px;
+            border-radius: 9999px;
+            border: 1px dashed rgba(0, 229, 255, 0.35);
+            animation: rotateRing 20s linear infinite;
+            pointer-events: none;
+        }
+        @keyframes rotateRing {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        @media (max-width: 640px) {
+            .avatar-img {
+                width: 6.5rem;
+                height: 6.5rem;
+            }
+        }
+
         /* 证书图片展示卡片 */
         .cert-image-card {
             transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
@@ -372,7 +410,7 @@
             bottom: 0.75rem;
             left: 0.75rem;
             right: 0.75rem;
-            background: rgba(0,0,0,0.6);
+            background: rgba(0,0,0,0.65);
             backdrop-filter: blur(4px);
             -webkit-backdrop-filter: blur(4px);
             color: #fff;
@@ -383,7 +421,7 @@
             letter-spacing: 0.03em;
         }
         html:not(.dark) .cert-image-card .cert-label {
-            background: rgba(255,255,255,0.8);
+            background: rgba(255,255,255,0.85);
             color: #1a1a2e;
         }
 
@@ -422,7 +460,7 @@
         .game-frame-wrapper {
             position: relative;
             width: 100%;
-            padding-top: 56.25%; /* 16:9 比例，移动端和PC都适用 */
+            padding-top: 56.25%;
             border-radius: 0.5rem;
             overflow: hidden;
             box-shadow: var(--shadow-card);
@@ -468,6 +506,66 @@
             75% { transform: scale(1.1); }
         }
 
+        /* ==================== 经历时间线样式 ==================== */
+        .timeline-node-dot {
+            position: absolute;
+            left: 0;
+            top: 1.75rem;
+            width: 1.5rem;
+            height: 1.5rem;
+            border-radius: 9999px;
+            background: var(--bg-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+        }
+        .timeline-node-dot::after {
+            content: '';
+            width: 0.5rem;
+            height: 0.5rem;
+            border-radius: 9999px;
+            animation: pulseNode 2s ease-in-out infinite;
+        }
+        @keyframes pulseNode {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(1.3); }
+        }
+        .timeline-dot-cyan { border: 2px solid var(--accent-cyan); box-shadow: 0 0 16px rgba(0,229,255,0.5); }
+        .timeline-dot-cyan::after { background: var(--accent-cyan); }
+        .timeline-dot-purple { border: 2px solid var(--accent-purple); box-shadow: 0 0 16px rgba(168,85,247,0.5); }
+        .timeline-dot-purple::after { background: var(--accent-purple); }
+        .timeline-dot-pink { border: 2px solid var(--accent-pink); box-shadow: 0 0 16px rgba(236,72,153,0.5); }
+        .timeline-dot-pink::after { background: var(--accent-pink); }
+
+        .exp-meta {
+            font-family: 'Fira Code', 'Consolas', monospace;
+            font-size: 0.75rem;
+            letter-spacing: 0.08em;
+        }
+
+        .exp-tag {
+            font-family: 'Fira Code', 'Consolas', monospace;
+            font-size: 0.7rem;
+            letter-spacing: 0.05em;
+            padding: 0.2rem 0.55rem;
+            border-radius: 0.25rem;
+            background: rgba(0, 229, 255, 0.08);
+            border: 1px solid rgba(0, 229, 255, 0.25);
+            color: var(--accent-cyan);
+            white-space: nowrap;
+        }
+        .exp-tag-purple {
+            background: rgba(168, 85, 247, 0.08);
+            border-color: rgba(168, 85, 247, 0.25);
+            color: var(--accent-purple);
+        }
+        .exp-tag-pink {
+            background: rgba(236, 72, 153, 0.08);
+            border-color: rgba(236, 72, 153, 0.25);
+            color: var(--accent-pink);
+        }
+
         @media (max-width: 768px) {
             .glass-card {
                 border-radius: 0.75rem;
@@ -477,6 +575,15 @@
             }
             .cert-image-card img {
                 height: 140px;
+            }
+            .timeline-node-dot {
+                width: 1.25rem;
+                height: 1.25rem;
+                top: 1.5rem;
+            }
+            .timeline-node-dot::after {
+                width: 0.4rem;
+                height: 0.4rem;
             }
         }
     </style>
@@ -494,8 +601,9 @@
                         <i class="fa-solid fa-code mr-1"></i>MCX.dev
                     </span>
                 </a>
-                <div class="hidden md:flex items-center gap-6 text-sm font-medium">
+                <div class="hidden md:flex items-center gap-5 text-sm font-medium">
                     <a href="#about" class="hover:text-[var(--accent-cyan)] transition-colors duration-300">关于我</a>
+                    <a href="#experience" class="hover:text-[var(--accent-cyan)] transition-colors duration-300">经历</a>
                     <a href="#skills" class="hover:text-[var(--accent-cyan)] transition-colors duration-300">专业技能</a>
                     <a href="#game" class="hover:text-[var(--accent-cyan)] transition-colors duration-300">小游戏</a>
                     <a href="#qixi" class="hover:text-[var(--accent-cyan)] transition-colors duration-300">七夕粒子</a>
@@ -517,6 +625,15 @@
         <div class="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full blur-3xl opacity-15 pointer-events-none" style="background: radial-gradient(circle, #00e5ff, transparent 70%);"></div>
 
         <div class="relative z-10 text-center max-w-3xl mx-auto">
+
+            <!-- ==================== 头像（新增） ==================== -->
+            <div class="flex justify-center mb-8" data-aos="zoom-in" data-aos-duration="800">
+                <div class="avatar-wrapper">
+                    <span class="avatar-ring"></span>
+                    <img src="头像.png" alt="马楚轩" class="avatar-img" loading="eager">
+                </div>
+            </div>
+
             <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-8 glass-card text-xs font-mono" data-aos="fade-down" data-aos-duration="800">
                 <span class="w-2 h-2 rounded-full bg-green-500"></span>
                 <span class="w-2 h-2 rounded-full bg-yellow-500"></span>
@@ -536,16 +653,17 @@
                 <span class="typing-cursor"></span>
             </div>
             <p class="text-sm sm:text-base text-[var(--text-secondary)] max-w-2xl mx-auto mb-10 leading-relaxed" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
-                作为计算机科学与技术专业新生，已系统性完成多项人工智能与云计算领域的权威认证。
-                擅长将理论知识转化为实践成果，在智能体开发、RAG应用、AIGC设计等领域具备可验证的技能储备。
+                计算机科学与技术专业 2026 级新生。<span class="text-[var(--accent-cyan)] font-mono">虚怀若谷，格物致知</span> ——
+                喜欢从底层出发理解技术，从 Prompt 到 Agent，从 RAG 到 AIGC，每一步都亲手构建、亲手验证。
+                相信真正的成长来自持续的好奇与沉淀，愿以谦逊之心，探索 AI 世界的每一层可能。
             </p>
             <div class="flex flex-wrap items-center justify-center gap-4" data-aos="fade-up" data-aos-duration="800" data-aos-delay="500">
                 <a href="#skills" class="btn-primary"><i class="fa-solid fa-terminal mr-2"></i>查看技能</a>
+                <a href="#experience" class="px-6 py-2.5 rounded-lg border transition-all duration-300 hover:translate-y-[-3px] cursor-pointer" style="border-color: var(--border-color); background: var(--bg-card); backdrop-filter: blur(var(--glass-blur));">
+                    <i class="fa-solid fa-code-branch mr-2 text-[var(--accent-purple)]"></i><span>成长轨迹</span>
+                </a>
                 <a href="#game" class="px-6 py-2.5 rounded-lg border transition-all duration-300 hover:translate-y-[-3px] cursor-pointer" style="border-color: var(--border-color); background: var(--bg-card); backdrop-filter: blur(var(--glass-blur));">
                     <i class="fa-solid fa-gamepad mr-2 text-[var(--accent-cyan)]"></i><span>玩小游戏</span>
-                </a>
-                <a href="#qixi" class="px-6 py-2.5 rounded-lg border transition-all duration-300 hover:translate-y-[-3px] cursor-pointer" style="border-color: var(--border-color); background: var(--bg-card); backdrop-filter: blur(var(--glass-blur));">
-                    <i class="fa-solid fa-heart mr-2 text-[var(--accent-pink)]"></i><span>七夕粒子</span>
                 </a>
                 <a href="#certs" class="px-6 py-2.5 rounded-lg border transition-all duration-300 hover:translate-y-[-3px] cursor-pointer" style="border-color: var(--border-color); background: var(--bg-card); backdrop-filter: blur(var(--glass-blur));">
                     <i class="fa-solid fa-certificate mr-2 text-[var(--accent-purple)]"></i><span>查看证书</span>
@@ -576,9 +694,10 @@
                         <h3 class="text-xl font-bold">自我评价</h3>
                     </div>
                     <p class="text-[var(--text-secondary)] leading-relaxed">
-                        作为计算机科学与技术专业新生，已系统性完成多项人工智能与云计算领域的权威认证。
-                        擅长将理论知识转化为实践成果，在智能体开发、RAG应用、AIGC设计等领域具备可验证的技能储备。
-                        致力于成为兼具技术深度与业务理解力的复合型AI人才。
+                        虚怀若谷，格物致知。作为计算机科学与技术专业新生，我习惯从底层出发理解每一项技术，
+                        在持续的实践中验证自己的认知。已系统完成 Datawhale 与华为云系列实训，
+                        覆盖大模型开发、智能体构建、RAG 与模型微调等方向。
+                        不追求头衔，只希望把每一层原理弄懂、把每一个小项目做扎实。
                     </p>
                     <div class="mt-6 flex flex-wrap gap-3">
                         <span class="skill-tag"><i class="fa-solid fa-brain mr-1 text-[var(--accent-purple)]"></i> AI-native</span>
@@ -601,6 +720,99 @@
                         <li class="flex items-center gap-4"><i class="fa-solid fa-envelope w-6 text-center text-[var(--accent-cyan)]"></i><span class="text-[var(--text-muted)]">邮箱：</span><a href="mailto:2364512038@qq.com" class="font-medium hover:text-[var(--accent-cyan)] transition-colors">2364512038@qq.com</a></li>
                     </ul>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== 经历 / 成长 ==================== -->
+    <section id="experience" class="py-20 px-4 sm:px-8">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-3xl sm:text-4xl font-bold mb-4 text-center font-mono" data-aos="fade-up" data-aos-duration="700">
+                <i class="fa-solid fa-code-branch mr-3 text-[var(--accent-purple)]"></i><span class="gradient-text">经历 · 成长</span>
+            </h2>
+            <p class="text-center text-[var(--text-muted)] mb-14 text-xs sm:text-sm font-mono" data-aos="fade-up" data-aos-duration="700" data-aos-delay="100">
+                <span class="text-[var(--accent-cyan)]">$</span> git log --oneline --graph ~/learning-journey
+            </p>
+
+            <div class="relative">
+                <div class="absolute left-3 sm:left-4 top-2 bottom-2 w-px bg-gradient-to-b from-[var(--accent-cyan)] via-[var(--accent-purple)] to-[var(--accent-pink)] opacity-70"></div>
+
+                <div class="space-y-10">
+                    <div class="relative pl-12 sm:pl-16" data-aos="fade-up" data-aos-duration="700">
+                        <div class="timeline-node-dot timeline-dot-cyan"></div>
+                        <div class="glass-card tech-border p-6 sm:p-7">
+                            <div class="flex flex-wrap items-center gap-x-3 gap-y-2 mb-3">
+                                <span class="exp-meta text-[var(--accent-cyan)]">2026.07</span>
+                                <span class="text-[var(--text-muted)] font-mono text-xs">//</span>
+                                <span class="exp-meta text-[var(--text-secondary)]">启蒙与探索</span>
+                            </div>
+                            <h3 class="text-lg font-bold mb-3">从第一行 Prompt 开始</h3>
+                            <p class="text-sm text-[var(--text-secondary)] leading-relaxed">
+                                七月开始自学 Vibecoding —— 一种直觉式的编程方式，让自然语言直接变成可执行的结构。
+                                沉浸在 Prompt Engineering 的世界里，试着用开源工具重构独立影像的剪辑流，
+                                享受掌控底层逻辑的过程。不追求速成，先把每一步弄明白。
+                            </p>
+                            <div class="mt-5 flex flex-wrap gap-2">
+                                <span class="exp-tag">LEARN // VIBECODING</span>
+                                <span class="exp-tag">VISUAL // EDITING</span>
+                                <span class="exp-tag exp-tag-purple">STACK // OPEN-SOURCE</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="relative pl-12 sm:pl-16" data-aos="fade-up" data-aos-duration="700" data-aos-delay="120">
+                        <div class="timeline-node-dot timeline-dot-purple"></div>
+                        <div class="glass-card tech-border p-6 sm:p-7">
+                            <div class="flex flex-wrap items-center gap-x-3 gap-y-2 mb-3">
+                                <span class="exp-meta text-[var(--accent-purple)]">2026.08</span>
+                                <span class="text-[var(--text-muted)] font-mono text-xs">//</span>
+                                <span class="exp-meta text-[var(--text-secondary)]">构建与连接</span>
+                            </div>
+                            <h3 class="text-lg font-bold mb-3">让模型接上真实世界</h3>
+                            <p class="text-sm text-[var(--text-secondary)] leading-relaxed">
+                                八月动手搭建了第一版智能体，在反复调试中理解 RAG 如何让模型"知道"外部知识。
+                                用 Workbuddy、ima 这类工具打磨日常流程，把 AI 能力落到 PPT 创作这类具体场景里，
+                                解决真实的小问题。比起跑通 demo，更在意它能不能真的派上用场。
+                            </p>
+                            <div class="mt-5 flex flex-wrap gap-2">
+                                <span class="exp-tag exp-tag-purple">DEV // AGENT</span>
+                                <span class="exp-tag exp-tag-purple">FLOW // RAG</span>
+                                <span class="exp-tag">TOOL // WORKBUDDY</span>
+                                <span class="exp-tag">CREATE // AIGC</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="relative pl-12 sm:pl-16" data-aos="fade-up" data-aos-duration="700" data-aos-delay="240">
+                        <div class="timeline-node-dot timeline-dot-pink"></div>
+                        <div class="glass-card tech-border p-6 sm:p-7">
+                            <div class="flex flex-wrap items-center gap-x-3 gap-y-2 mb-3">
+                                <span class="exp-meta text-[var(--accent-pink)]">2026.09</span>
+                                <span class="text-[var(--text-muted)] font-mono text-xs">//</span>
+                                <span class="exp-meta text-[var(--text-secondary)]">认证与沉淀</span>
+                            </div>
+                            <h3 class="text-lg font-bold mb-3">通过评估，验证阶段性学习</h3>
+                            <p class="text-sm text-[var(--text-secondary)] leading-relaxed">
+                                九月完成 Datawhale 与华为云系列高强度实训，陆续通过大模型开发、Agent、
+                                Fine-tuning 等方向的技能等级评估。证书不是终点，更像一次系统性的自检 ——
+                                确认哪些真的理解了，哪些还需要补课。对技术的敬畏，从承认无知开始。
+                            </p>
+                            <div class="mt-5 flex flex-wrap gap-2">
+                                <span class="exp-tag exp-tag-pink">CERT // LLM SYS</span>
+                                <span class="exp-tag exp-tag-pink">VERIFIED // AGENT</span>
+                                <span class="exp-tag exp-tag-pink">CERT // FINE-TUNING</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-14 text-center" data-aos="fade-up" data-aos-duration="700">
+                <p class="font-mono text-xs text-[var(--text-muted)]">
+                    <span class="text-[var(--accent-cyan)]">/*</span>
+                    虚怀若谷，格物致知
+                    <span class="text-[var(--accent-pink)]">*/</span>
+                </p>
             </div>
         </div>
     </section>
@@ -801,7 +1013,7 @@
         </div>
     </footer>
 
-    <!-- ==================== 特别鸣谢区域（新增） ==================== -->
+    <!-- ==================== 特别鸣谢区域 ==================== -->
     <section class="thanks-section py-16 px-4 sm:px-8 border-t" style="border-color: var(--border-color);">
         <div class="max-w-4xl mx-auto text-center">
             <div class="glass-card p-8 sm:p-10" data-aos="fade-up" data-aos-duration="800">
@@ -892,7 +1104,7 @@
             'AI & 大模型爱好者 🤖',
             'RAG / Agent 开发者 ⚡',
             'AIGC 创作者 🎨',
-            '欢迎来到我的简历 ✨',
+            '虚怀若谷 · 格物致知',
             '<AI /> · RAG · Agent · Prompt',
         ];
         let phraseIndex = 0;
@@ -928,7 +1140,7 @@
         setTimeout(typeLoop, 800);
     })();
 
-    /* ==================== Canvas粒子系统（鼠标粒子样式已替换为关键词粒子） ==================== */
+    /* ==================== Canvas粒子系统 ==================== */
     (function() {
         const canvas = document.getElementById('particleCanvas');
         const ctx = canvas.getContext('2d');
@@ -1168,9 +1380,24 @@
     function initCertGallery() {
         const container = document.getElementById('certGalleryContainer');
         if (!container) return;
+
+        // 证书图片列表（按顺序展示，与 index.html 同级目录）
         const imageFiles = [
-            '01.jpg', '02.jpg', '03.jpg', '04.jpg', '05.jpg', '06.jpg', '07.jpg',
-            '08.jpg', '09.jpg', '10.jpg', '11.jpg', '12.jpg', '13.jpg', '14.jpg'
+            'AI编程.png',
+            'AI编程2.png',
+            'AI编程3.png',
+            'AI编程4.png',
+            'AI编程5.png',
+            'AI编程6.png',
+            'AI编程7.png',
+            '编程.png',
+            '华为1.png',
+            '华为2.png',
+            '华为3.png',
+            '华为4.png',
+            '华为5.png',
+            '华为6.png',
+            '华为7.png'
         ];
 
         container.innerHTML = '';
@@ -1183,13 +1410,15 @@
 
             const img = document.createElement('img');
             img.src = file;
-            img.alt = `证书扫描件 ${String(index + 1).padStart(2, '0')}`;
+            // 使用文件名作为 alt 与标签文本（去掉扩展名）
+            const displayName = file.replace(/\.(png|jpg|jpeg|webp)$/i, '');
+            img.alt = `证书 - ${displayName}`;
             img.loading = 'lazy';
             img.setAttribute('data-full', file);
 
             const label = document.createElement('div');
             label.className = 'cert-label';
-            label.textContent = `证书 ${String(index + 1).padStart(2, '0')}`;
+            label.textContent = displayName;
 
             card.appendChild(img);
             card.appendChild(label);
